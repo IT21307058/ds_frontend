@@ -1,0 +1,49 @@
+<div class="container">
+    <h2>Add Category</h2>
+    <form [formGroup]="taskForm" (ngSubmit)="addTask()">
+
+        <mat-form-field appearance="outline">
+            <mat-label>Title</mat-label>
+            <input matInput formControlName="title" placeholder="Title" required />
+            <mat-error *ngIf="taskForm.get('title')?.hasError('required')">
+                This input is required!
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Description</mat-label>
+            <input matInput type="text" placeholder="Description" formControlName="description" />
+            <mat-error *ngIf="taskForm.get('description')?.hasError('required')">
+                This input is required!
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Due Date</mat-label>
+            <input matInput type="text" placeholder="Due Date" formControlName="dueDate" />
+            <mat-error *ngIf="taskForm.get('dueDate')?.hasError('required')">
+                This input is required!
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Status</mat-label>
+            <input matInput type="text" placeholder="Status of Task" formControlName="status" />
+            <mat-error *ngIf="taskForm.get('status')?.hasError('required')">
+                This input is required!
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Member Assign</mat-label>
+            <input matInput type="text" placeholder="Assigned To" formControlName="userId" />
+            <mat-error *ngIf="taskForm.get('userId')?.hasError('required')">
+                This input is required!
+            </mat-error>
+        </mat-form-field>
+
+
+        <button mat-raised-button color="primary" type="submit">Add Task</button>
+
+    </form>
+</div>
