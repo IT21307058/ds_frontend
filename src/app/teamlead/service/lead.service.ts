@@ -24,6 +24,12 @@ export class LeadService {
     })
   }
 
+  deleteTask(taskId: number):Observable<any>{
+    return this.http.delete(BASIC_URL + 'api/task/' + taskId, {
+      headers: this.createAuthorizationHeader(),
+    })
+  }
+
   private createAuthorizationHeader():HttpHeaders{
     return new HttpHeaders().set(
       "Authorization", "Bearer e" + UserStorageService.getToken()
