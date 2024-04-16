@@ -8,13 +8,15 @@ import { PosttaskComponent } from './components/posttask/posttask.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DemoAngularMaterailModule } from '../DemoAngularMaterialModule';
+import { UpdatetaskComponent } from './components/updatetask/updatetask.component';
 
 
 @NgModule({
   declarations: [
     TeamleadComponent,
     DashboardComponent,
-    PosttaskComponent
+    PosttaskComponent,
+    UpdatetaskComponent
   ],
   imports: [
     CommonModule,

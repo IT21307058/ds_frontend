@@ -1,6 +1,6 @@
 <div class="container">
-    <h2>Add Task</h2>
-    <form [formGroup]="taskForm" (ngSubmit)="addTask()">
+    <h2>Update Task</h2>
+    <form [formGroup]="taskForm" (ngSubmit)="updateTask()">
 
         <mat-form-field appearance="outline">
             <mat-label>Title</mat-label>
@@ -43,7 +43,8 @@
         </mat-form-field>
 
 
-        <button mat-raised-button color="primary" type="submit">Add Task</button>
+        <button mat-raised-button color="primary" type="submit">Update Task</button>
 
     </form>
 </div>
+

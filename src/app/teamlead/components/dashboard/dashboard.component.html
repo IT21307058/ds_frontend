@@ -9,6 +9,7 @@
       <span>Status: {{ task.status }}</span>
       <span>Assigned To: {{ task.assignedTo.name }}</span>
       <button (click)="deleteTask(task.id)">Delete</button>
+      <button (click)="redirectToUpdatePage(task.id)">Update</button>
     </li>
   </ul>
 </div>

@@ -30,6 +30,18 @@ export class LeadService {
     })
   }
 
+  getOneTask(taskId: number):Observable<any>{
+    return this.http.get(BASIC_URL + 'api/task/' + taskId, {
+      headers: this.createAuthorizationHeader(),
+    })
+  }
+
+  updateTask(taskId: number, taskDto: any): Observable<any>{
+    return this.http.put(BASIC_URL + `api/task/` + taskId, taskDto, {
+      headers: this.createAuthorizationHeader()
+    })
+  }
+
   private createAuthorizationHeader():HttpHeaders{
     return new HttpHeaders().set(
       "Authorization", "Bearer e" + UserStorageService.getToken()

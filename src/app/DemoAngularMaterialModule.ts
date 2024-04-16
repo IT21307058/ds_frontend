@@ -20,7 +20,6 @@ import { MatTableModule } from '@angular/material/table';
 
 
 
-
 @NgModule({
   exports: [
     MatButtonModule,
@@ -41,7 +40,8 @@ import { MatTableModule } from '@angular/material/table';
     MatNativeDateModule,
     MatRadioModule,
     MatDialogModule,
-    MatTableModule
+    MatTableModule,
+    MatDialogModule
   ]
 })
 export class DemoAngularMaterailModule {
