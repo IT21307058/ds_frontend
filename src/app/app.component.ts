@@ -10,21 +10,25 @@ import { UserStorageService } from './service/storage/user-storage.service';
 export class AppComponent {
   title = 'tms';
 
-  isCustomerLoggedIn : boolean = UserStorageService.isCustomerLoggedIn();
-  isAdminLoggedIn : boolean = UserStorageService.isAdminLoggedIn();
+  // isCustomerLoggedIn : boolean = UserStorageService.isCustomerLoggedIn();
+  isAdminLoggedIn: boolean = UserStorageService.isAdminLoggedIn();
+  isInstructorLoggedIn: boolean = UserStorageService.isInstructorLoggedIn();
+  isLearnerLoggedIn: boolean = UserStorageService.isLearnerLoggedIn();
 
-  constructor(private router: Router){}
+  constructor(private router: Router) { }
 
-  ngOnInit():void{
+  ngOnInit(): void {
     // whenever route change also change value
     this.router.events.subscribe(event => {
-      this.isCustomerLoggedIn = UserStorageService.isCustomerLoggedIn();
+      // this.isCustomerLoggedIn = UserStorageService.isCustomerLoggedIn();
       this.isAdminLoggedIn = UserStorageService.isAdminLoggedIn();
+      this.isInstructorLoggedIn = UserStorageService.isInstructorLoggedIn();
+      this.isLearnerLoggedIn = UserStorageService.isLearnerLoggedIn();
     })
   }
 
   // logout
-  logout(){
+  logout() {
     UserStorageService.signOut();
     this.router.navigateByUrl('login');
   }

@@ -1,0 +1,50 @@
+.product-dashboard {
+  max-width: 800px; /* Adjust width as needed */
+  margin: 0 auto;
+}
+
+.product-card {
+  display: flex;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px 10px;
+}
+
+.product-details {
+  flex: 1;
+  padding: 10px;
+}
+
+.product-details h3 {
+  margin-top: 0;
+}
+
+.product-details p {
+  margin: 5px 0;
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+}
+
+.view-button, .delete-button {
+  padding: 8px 16px;
+  margin-left: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.view-button {
+  background-color: green;
+  color: white;
+}
+
+.delete-button {
+  background-color: red;
+  color: white;
+}

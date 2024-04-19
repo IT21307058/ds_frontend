@@ -1,0 +1,10 @@
+<h2>Contents for Course {{ courseId }}</h2>
+<div *ngFor="let content of contents">
+  <div>
+    <img [src]="content.processedImg" alt="Product Image">
+    <h3>{{ content.title }}</h3>
+    <p>{{ content.contentType }}</p>
+    <p>{{ content.description }}</p>
+    <p>{{ content.status }}</p>
+  </div>
+</div>

@@ -3,42 +3,42 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { UserStorageService } from 'src/app/service/storage/user-storage.service';
 
-const BASIC_URL = "http://localhost:9098/"
+const BASIC_URL = "http://localhost:8083/"
 
 @Injectable({
   providedIn: 'root'
 })
-export class LeadService {
+export class InstructorService {
 
   constructor(private http: HttpClient) { }
 
-  addTask(taskDto: any):Observable<any>{
-    return this.http.post(BASIC_URL + 'api/task/', taskDto, {
+  addCourse(courseDto: any):Observable<any>{
+    return this.http.post(BASIC_URL + 'api/instructor/course', courseDto, {
       headers: this.createAuthorizationHeader(),
     })
   }
 
-  getAllTask():Observable<any>{
-    return this.http.get(BASIC_URL + 'api/task/', {
+  getAllCourse():Observable<any>{
+    return this.http.get(BASIC_URL + 'api/instructor/courses', {
       headers: this.createAuthorizationHeader(),
     })
   }
 
-  deleteTask(taskId: number):Observable<any>{
-    return this.http.delete(BASIC_URL + 'api/task/' + taskId, {
+  addContent(contentDto : any):Observable<any>{
+    return this.http.post(BASIC_URL + 'api/instructor/content', contentDto, {
       headers: this.createAuthorizationHeader(),
     })
   }
 
-  getOneTask(taskId: number):Observable<any>{
-    return this.http.get(BASIC_URL + 'api/task/' + taskId, {
+  getAllContents():Observable<any>{
+    return this.http.get(BASIC_URL + 'api/instructor/contents', {
       headers: this.createAuthorizationHeader(),
     })
   }
 
-  updateTask(taskId: number, taskDto: any): Observable<any>{
-    return this.http.put(BASIC_URL + `api/task/` + taskId, taskDto, {
-      headers: this.createAuthorizationHeader()
+  getAllContentUsingCourse(courseId: number):Observable<any>{
+    return this.http.get(BASIC_URL + 'api/instructor/course/'+ courseId, {
+      headers: this.createAuthorizationHeader(),
     })
   }
 

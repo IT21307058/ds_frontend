@@ -45,9 +45,9 @@ export class LoginComponent {
           // redirect specfic role to specfic UI
           if(UserStorageService.isAdminLoggedIn()){
             this.router.navigateByUrl('teamlead/dashboard')
-          }else if(UserStorageService.isCustomerLoggedIn()){
+          }else if(UserStorageService.isInstructorLoggedIn){
             console.log("successs");
-            this.router.navigateByUrl('member/dashboard')
+            this.router.navigateByUrl('instructor/addCourse')
           }
           // this.snackBar.open('Login Successfully!!', 'Ok', {duration: 5000});
         },

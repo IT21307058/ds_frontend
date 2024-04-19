@@ -1,5 +1,5 @@
 <!-- check customer or admin login  -->
-<div *ngIf = "!isCustomerLoggedIn && !isAdminLoggedIn">
+<div *ngIf = "!isInstructorLoggedIn && !isAdminLoggedIn && !isLearnerLoggedIn">
   <mat-toolbar color="primary" class="navbar">
     <span class="navbar-brand">Task Managment System</span>
     <span class="spacer"></span>
@@ -22,11 +22,23 @@
 </div>
 
 <!--show member login nav bar details  -->
-<div *ngIf = "isCustomerLoggedIn">
+<!-- <div *ngIf = "isCustomerLoggedIn">
   <mat-toolbar color="primary" class="navbar">
     <span class="navbar-brand">Task Managment System</span>
     <span class="spacer"></span>
     <button mat-button routerLink="/member/dashboard" routerLinkActive="active">Dashboard</button>
+    <button mat-button routerLinkActive="active" (click)="logout()">Logout</button>
+  </mat-toolbar>
+</div> -->
+
+<div *ngIf = "isInstructorLoggedIn">
+  <mat-toolbar color="primary" class="navbar">
+    <span class="navbar-brand">Task Managment System</span>
+    <span class="spacer"></span>
+    <button mat-button routerLink="/instructor/allCourse" routerLinkActive="active">Dashboard</button>
+    <button mat-button routerLink="/instructor/addCourse" routerLinkActive="active">Course</button>
+    <button mat-button routerLink="/instructor/addContent" routerLinkActive="active">Content</button>
+    <button mat-button routerLink="/instructor/courses/:id" routerLinkActive="active">Content</button>
     <button mat-button routerLinkActive="active" (click)="logout()">Logout</button>
   </mat-toolbar>
 </div>

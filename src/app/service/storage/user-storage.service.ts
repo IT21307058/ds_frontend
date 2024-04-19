@@ -54,7 +54,28 @@ export class UserStorageService {
     return user.role;
   }
 
-  // check admin login
+  // // check admin login
+  // static isAdminLoggedIn():boolean{
+  //   if(this.getToken === null){
+  //     return false;
+  //   }
+
+  //   // role type is string
+  //   const role:string = this.getUserRole();
+  //   // admin login return true
+  //   return role == 'ADMIN';
+  // }
+
+  // // check customer login
+  // static isCustomerLoggedIn():boolean{
+  //   if(this.getToken === null){
+  //     return false;
+  //   }
+
+  //   const role:string = this.getUserRole();
+  //   return role == 'CUSTOMER';
+  // }
+
   static isAdminLoggedIn():boolean{
     if(this.getToken === null){
       return false;
@@ -66,14 +87,26 @@ export class UserStorageService {
     return role == 'ADMIN';
   }
 
-  // check customer login
-  static isCustomerLoggedIn():boolean{
+  static isInstructorLoggedIn():boolean{
     if(this.getToken === null){
       return false;
     }
 
+    // role type is string
     const role:string = this.getUserRole();
-    return role == 'CUSTOMER';
+    // admin login return true
+    return role == 'INSTRUCTOR';
+  }
+
+  static isLearnerLoggedIn():boolean{
+    if(this.getToken === null){
+      return false;
+    }
+
+    // role type is string
+    const role:string = this.getUserRole();
+    // admin login return true
+    return role == 'LEARNER';
   }
 
   // sign out -> remove token and user

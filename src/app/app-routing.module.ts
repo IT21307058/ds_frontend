@@ -7,7 +7,8 @@ const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "signup", component: SignupComponent },
   { path: 'member', loadChildren: () => import('./member/member.module').then(m => m.MemberModule) },
-  { path: 'teamlead', loadChildren: () => import('./teamlead/teamlead.module').then(m => m.TeamleadModule) }
+  { path: 'teamlead', loadChildren: () => import('./teamlead/teamlead.module').then(m => m.TeamleadModule) },
+  { path: 'instructor', loadChildren: () => import('./instructor/instructor.module').then(m => m.InstructorModule) }
 ];
 
 @NgModule({
