@@ -8,7 +8,8 @@ const routes: Routes = [
   { path: "signup", component: SignupComponent },
   { path: 'member', loadChildren: () => import('./member/member.module').then(m => m.MemberModule) },
   { path: 'teamlead', loadChildren: () => import('./teamlead/teamlead.module').then(m => m.TeamleadModule) },
-  { path: 'instructor', loadChildren: () => import('./instructor/instructor.module').then(m => m.InstructorModule) }
+  { path: 'instructor', loadChildren: () => import('./instructor/instructor.module').then(m => m.InstructorModule) },
+  { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) }
 ];
 
 @NgModule({

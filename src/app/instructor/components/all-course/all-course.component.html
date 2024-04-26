@@ -1,8 +1,7 @@
-<div class="product-dashboard">
+<!-- <div class="product-dashboard">
   <h2>All Courses</h2>
   <div *ngIf="products.length > 0; else loading">
       <div *ngFor="let product of products" class="product-card">
-          <!-- <img [src]="product.processedImg" alt="Product Image"> -->
           <div class="product-details">
               <p>{{ product.id }}</p>
               <h3>{{ product.name }}</h3>
@@ -17,7 +16,40 @@
   <ng-template #loading>
       <p>Loading products...</p>
   </ng-template>
-</div>
+</div> -->
 
-  
-  
+
+<ng-container>
+
+  <mat-table #basicTable [dataSource]="products" class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef style="font-weight: bolder; color: #003973;">Course ID</mat-header-cell>
+      <mat-cell *matCellDef="let product">{{product.id}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef style="font-weight: bolder; color: #003973;">Name</mat-header-cell>
+      <mat-cell *matCellDef="let product">{{product.name}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="description">
+      <mat-header-cell *matHeaderCellDef style="font-weight: bolder; color: #003973;">Description</mat-header-cell>
+      <mat-cell *matCellDef="let product">{{product.description}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="coursePrice">
+      <mat-header-cell *matHeaderCellDef style="font-weight: bolder; color: #003973;">Course Price</mat-header-cell>
+      <mat-cell *matCellDef="let product">{{product.coursePrice}} $</mat-cell>
+    </ng-container>
+
+
+    <ng-container matColumnDef="action">
+      <mat-header-cell *matHeaderCellDef style="font-weight: bolder; color: #003973;">Action</mat-header-cell>
+      <mat-cell *matCellDef="let product">
+        <button class="view-button" (click)="redirectToUpdatePage(product.id)">View Content</button>
+        <button class="delete-button" (click)="deleteCourse(product.id)">Delete</button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="['id', 'name', 'description', 'coursePrice', 'action']"></mat-header-row>
+    <mat-row *matRowDef="let product; columns: ['id', 'name', 'description', 'coursePrice','action']"></mat-row>
+  </mat-table>
+
+</ng-container>

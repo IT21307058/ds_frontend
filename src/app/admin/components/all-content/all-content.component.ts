@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { InstructorService } from '../../services/instructor.service';
+import { InstructorService } from 'src/app/instructor/services/instructor.service';
 
 @Component({
   selector: 'app-all-content',
@@ -8,7 +8,6 @@ import { InstructorService } from '../../services/instructor.service';
   styleUrls: ['./all-content.component.css']
 })
 export class AllContentComponent implements OnInit{
-
   courseId: number;
   contents: any[] = []; // Assuming you have a Content interface/model
 
@@ -23,16 +22,16 @@ export class AllContentComponent implements OnInit{
   
 
   loadContents() {
-    this.instructorService.getAllContentUsingCourse(this.courseId).subscribe(res => {
-      // this.contents = contents;
-      res.forEach(element => {
-        element.processedImg = 'data:image/jpeg;base64,'+element.byteImg;
-        this.contents.push(element);
-      })
+    this.instructorService.getAllContents().subscribe(res => {
+      this.contents = res.filter(content => content.status === 'Not Accepted').map(element => ({
+        ...element,
+        processedImg: 'data:image/jpeg;base64,' + element.byteImg
+      }));
     });
   }
 
   redirectToUpdatePage(contentId: number){
-    this.router.navigate([`/instructor/updatecontent/`, contentId]);
+    this.router.navigate([`/admin/updatestatuscontent/`, contentId]);
   }
+
 }

@@ -13,6 +13,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { AllContentComponent } from './components/all-content/all-content.component';
+import { MatButtonModule } from '@angular/material/button';
+import { UpdateContentComponent } from './components/update-content/update-content.component';
 
 
 
@@ -22,7 +24,8 @@ import { AllContentComponent } from './components/all-content/all-content.compon
     PostCourseComponent,
     PostContentComponent,
     AllCourseComponent,
-    AllContentComponent
+    AllContentComponent,
+    UpdateContentComponent
   ],
   imports: [
     CommonModule,
@@ -33,7 +36,8 @@ import { AllContentComponent } from './components/all-content/all-content.compon
     DemoAngularMaterailModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatButtonModule
   ]
 })
 export class InstructorModule { }

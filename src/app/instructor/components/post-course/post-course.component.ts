@@ -24,6 +24,7 @@ export class PostCourseComponent {
     this.courseForm = this.fb.group({
       name: [null, [Validators.required]],
       description: [null, [Validators.required]],
+      coursePrice: [null, [Validators.required]],
     })
   }
 

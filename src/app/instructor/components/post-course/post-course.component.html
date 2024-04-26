@@ -1,5 +1,5 @@
 <div class="container">
-    <h2>Add Category</h2>
+    <h2>Add Course</h2>
     <form [formGroup]="courseForm" (ngSubmit)="addCourse()">
 
         <mat-form-field appearance="outline">
@@ -18,7 +18,15 @@
             </mat-error>
         </mat-form-field>
 
-        <button mat-raised-button color="primary" type="submit">Add Category</button>
+        <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Course Price</mat-label>
+            <input matInput type="text" placeholder="Course Price" formControlName="coursePrice" />
+            <mat-error *ngIf="courseForm.get('coursePrice')?.hasError('required')">
+                This input is required!
+            </mat-error>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit">Add Course</button>
         
     </form>
 </div>

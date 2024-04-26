@@ -4,6 +4,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
+
 
 @Component({
   selector: 'app-all-course',
@@ -13,11 +15,8 @@ import { Router } from '@angular/router';
 export class AllCourseComponent implements OnInit{
 
   displayedColumns: string[] = ['id','CourseName', 'Description','actions'];
-  products: any[] = [];
+  products: any;
   dataSource!: MatTableDataSource<any>;
-
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @ViewChild(MatSort) sort!: MatSort;
 
   constructor(private instructorService: InstructorService, private router: Router){}
 
@@ -35,12 +34,18 @@ export class AllCourseComponent implements OnInit{
   //   })
   // }
 
+  // getAllProducts(){
+  //   this.products = [];
+  //   this.instructorService.getAllCourse().subscribe(res => {
+  //     res.forEach(element => {
+  //       this.products.push(element);
+  //     })
+  //   })
+  // }
+
   getAllProducts(){
-    this.products = [];
     this.instructorService.getAllCourse().subscribe(res => {
-      res.forEach(element => {
-        this.products.push(element);
-      })
+      this.products = res;
     })
   }
 
@@ -60,6 +65,20 @@ export class AllCourseComponent implements OnInit{
   //     }
   //   })
   // }
+
+  deleteCourse(courseId: number){
+    this.instructorService.deleteCourse(courseId).subscribe(
+      () => {
+        console.log('Course deleted successfully');
+        // Handle success
+      },
+      error => {
+        console.error('Error deleting course:', error);
+        // Handle error
+      }
+    );
+    
+  }
 
 
 
