@@ -1,24 +1,3 @@
-<!-- <div class="product-dashboard">
-  <h2>All Courses</h2>
-  <div *ngIf="products.length > 0; else loading">
-      <div *ngFor="let product of products" class="product-card">
-          <div class="product-details">
-              <p>{{ product.id }}</p>
-              <h3>{{ product.name }}</h3>
-              <p>{{ product.description }}</p>
-          </div>
-          <div class="button-container">
-            <button class="view-button" (click)="redirectToUpdatePage(product.id)">View Content</button>
-            <button class="delete-button">Delete</button>
-        </div>
-      </div>
-  </div>
-  <ng-template #loading>
-      <p>Loading products...</p>
-  </ng-template>
-</div> -->
-
-
 <ng-container>
 
   <mat-table #basicTable [dataSource]="products" class="mat-elevation-z8">
@@ -27,7 +6,7 @@
       <mat-cell *matCellDef="let product">{{product.id}}</mat-cell>
     </ng-container>
     <ng-container matColumnDef="name">
-      <mat-header-cell *matHeaderCellDef style="font-weight: bolder; color: #003973;">Name</mat-header-cell>
+      <mat-header-cell *matHeaderCellDef style="font-weight: bolder; color: #003973;">Course Name</mat-header-cell>
       <mat-cell *matCellDef="let product">{{product.name}}</mat-cell>
     </ng-container>
     <ng-container matColumnDef="description">
@@ -43,8 +22,9 @@
     <ng-container matColumnDef="action">
       <mat-header-cell *matHeaderCellDef style="font-weight: bolder; color: #003973;">Action</mat-header-cell>
       <mat-cell *matCellDef="let product">
-        <button class="view-button" (click)="redirectToUpdatePage(product.id)">View Content</button>
-        <button class="delete-button" (click)="deleteCourse(product.id)">Delete</button>
+        <button mat-raised-button color="primary" style="margin: 5px;" (click)="redirectToUpdatePage(product.id)">Contents</button>
+        <button mat-raised-button color="accent" style="margin: 5px;" (click)="redirectToUpPage(product.id)">Update Course</button>
+        <button mat-raised-button color="warn" style="margin: 5px;" style="margin: 10px;" (click)="deleteCourse(product.id)">Delete</button>
       </mat-cell>
     </ng-container>
 

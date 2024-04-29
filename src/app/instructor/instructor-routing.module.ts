@@ -6,6 +6,7 @@ import { PostContentComponent } from './components/post-content/post-content.com
 import { AllCourseComponent } from './components/all-course/all-course.component';
 import { AllContentComponent } from './components/all-content/all-content.component';
 import { UpdateContentComponent } from './components/update-content/update-content.component';
+import { UpdateCourseComponent } from './components/update-course/update-course.component';
 
 const routes: Routes = [
   { path: '', component: InstructorComponent },
@@ -13,7 +14,8 @@ const routes: Routes = [
   { path: 'addContent', component: PostContentComponent},
   { path: 'allCourse', component: AllCourseComponent},
   { path: 'courses/:id', component: AllContentComponent },
-  { path: 'updatecontent/:id', component: UpdateContentComponent }
+  { path: 'updatecontent/:id', component: UpdateContentComponent },
+  { path: 'updatecourse/:id', component: UpdateCourseComponent }
 ];
 
 @NgModule({

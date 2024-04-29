@@ -5,6 +5,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -18,7 +19,7 @@ export class AllCourseComponent implements OnInit{
   products: any;
   dataSource!: MatTableDataSource<any>;
 
-  constructor(private instructorService: InstructorService, private router: Router){}
+  constructor(private instructorService: InstructorService, private router: Router, private snackBar: MatSnackBar){}
 
   ngOnInit(){
     this.getAllProducts();
@@ -53,6 +54,10 @@ export class AllCourseComponent implements OnInit{
     this.router.navigate([`/instructor/courses/`, courseId]);
   }
 
+  redirectToUpPage(courseId: number) {
+    this.router.navigate([`/instructor/updatecourse/`, courseId]);
+  }
+
   // getAllCourse(){
   //   this.instructorService.getAllCourse().subscribe({
   //     next: (res) => {
@@ -69,8 +74,9 @@ export class AllCourseComponent implements OnInit{
   deleteCourse(courseId: number){
     this.instructorService.deleteCourse(courseId).subscribe(
       () => {
-        console.log('Course deleted successfully');
-        // Handle success
+        this.snackBar.open('Course deleted Successfully', 'Close', {
+          duration: 5000
+        });
       },
       error => {
         console.error('Error deleting course:', error);

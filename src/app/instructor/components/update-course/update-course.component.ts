@@ -1,15 +1,16 @@
 import { Component } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { InstructorService } from '../../services/instructor.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
-  selector: 'app-update-content',
-  templateUrl: './update-content.component.html',
-  styleUrls: ['./update-content.component.css']
+  selector: 'app-update-course',
+  templateUrl: './update-course.component.html',
+  styleUrls: ['./update-course.component.css']
 })
-export class UpdateContentComponent {
+export class UpdateCourseComponent {
+
   contentId: number;
   productForm: FormGroup; // Declare FormGroup for the form
 
@@ -30,47 +31,44 @@ export class UpdateContentComponent {
     // Initialize contentForm with form controls
     this.productForm = this.formBuilder.group({
       courseId: ['', Validators.required],
-      contentType: ['', Validators.required],
-      title: ['', Validators.required],
-      description: [''],
-      status: ['', Validators.required]
+      courseName: ['', Validators.required],
+      description: ['', Validators.required],
+      coursePrice: ['', Validators.required]
     });
   }
 
-  loadContent(contentId: number) {
-    this.instructorService.getContent(contentId)
+  loadContent(courseId: number) {
+    this.instructorService.getOneCourse(courseId)
       .subscribe(
         (response) => {
           // Populate form controls with fetched content data
           this.productForm.patchValue({
-            courseId: response.dto.courseId,
-            contentType: response.contentType,
-            title: response.title,
+            courseId: response.id,
+            courseName: response.name,
             description: response.description,
-            status: response.status
+            coursePrice: response.coursePrice
           });
         },
         (error) => {
-          console.error('Failed to fetch content', error);
+          console.error('Failed to fetch course', error);
         }
       );
   }
 
-  updateContent() {
+  updateCourse() {
     if (this.productForm.valid) {
       const updates = {
         courseId: this.productForm.get('courseId').value,
-        contentType: this.productForm.get('contentType').value,
-        title: this.productForm.get('title').value,
+        name: this.productForm.get('courseName').value,
         description: this.productForm.get('description').value,
-        status: this.productForm.get('status').value
+        coursePrice: this.productForm.get('coursePrice').value,
       };
 
-      this.instructorService.patchContent(this.contentId, updates)
+      this.instructorService.updateCourse(this.contentId, updates)
         .subscribe(
           (res) => {
             if (res.id != null) {
-              this.snackBar.open('Content updated Successfully', 'Close', {
+              this.snackBar.open('Course updated Successfully', 'Close', {
                 duration: 5000
               });
               this.router.navigateByUrl('/instructor/allCourse');
@@ -81,8 +79,8 @@ export class UpdateContentComponent {
             }
           },
           (error) => {
-            console.error('Failed to update content', error);
-            this.snackBar.open('Failed to update content', 'ERROR', {
+            console.error('Failed to update course', error);
+            this.snackBar.open('Failed to update course', 'ERROR', {
               duration: 5000
             });
           }
@@ -94,5 +92,4 @@ export class UpdateContentComponent {
       });
     }
   }
-
 }
