@@ -1,0 +1,32 @@
+<div class="container">
+    <h2>Add Course</h2>
+    <form [formGroup]="courseForm" (ngSubmit)="markContent()">
+
+        <mat-form-field appearance="outline">
+            <mat-label>Learner Id</mat-label>
+            <input matInput formControlName="learnerId" placeholder="learnerId" required />
+            <mat-error *ngIf="courseForm.get('learnerId')?.hasError('required')">
+                This input is required!
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Content Id</mat-label>
+            <input matInput type="text" placeholder="contentId" formControlName="contentId" />
+            <mat-error *ngIf="courseForm.get('contentId')?.hasError('required')">
+                This input is required!
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Course Id</mat-label>
+            <input matInput type="text" placeholder="courseId" formControlName="courseId" />
+            <mat-error *ngIf="courseForm.get('courseId')?.hasError('required')">
+                This input is required!
+            </mat-error>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit">Mark Complete</button>
+
+    </form>
+</div>

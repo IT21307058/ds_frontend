@@ -1,0 +1,31 @@
+<!-- <form [formGroup]="learnerIdForm" (ngSubmit)="getLearnerProgressByCourse()">
+    <label for="learnerId">Enter Learner ID:</label>
+    <input type="number" id="learnerId" formControlName="learnerId" required>
+    <button type="submit">Get Progress</button>
+  </form>
+  
+  <div *ngIf="learnerProgress">
+    <h2>Learner Progress by Course</h2>
+    <ul>
+      <li *ngFor="let progress of learnerProgress | keyvalue">
+        Course ID: {{ progress.key }}, Progress: {{ progress.value }}%
+      </li>
+    </ul>
+  </div> -->
+
+
+<form [formGroup]="learnerIdForm" (ngSubmit)="getLearnerProgressByCourse()" class="form-container">
+    <label for="learnerId" class="label">Enter Learner ID:</label>
+    <input type="number" id="learnerId" formControlName="learnerId" required class="input-field">
+    <button type="submit" class="btn">Get Progress</button>
+</form>
+
+<div *ngIf="learnerProgress" class="progress-container">
+    <h2 class="heading">Learner Progress by Course</h2>
+    <ul class="progress-list">
+        <li *ngFor="let progress of learnerProgress | keyvalue" class="progress-item">
+            <span class="course-id">Course ID: {{ progress.key }}</span>, Progress: <span class="progress-value">{{
+                progress.value }}%</span>
+        </li>
+    </ul>
+</div>

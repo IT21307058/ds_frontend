@@ -16,6 +16,7 @@ import { AllContentComponent } from './components/all-content/all-content.compon
 import { MatButtonModule } from '@angular/material/button';
 import { UpdateContentComponent } from './components/update-content/update-content.component';
 import { UpdateCourseComponent } from './components/update-course/update-course.component';
+import { LeanerProgressComponent } from './components/leaner-progress/leaner-progress.component';
 
 
 
@@ -27,7 +28,8 @@ import { UpdateCourseComponent } from './components/update-course/update-course.
     AllCourseComponent,
     AllContentComponent,
     UpdateContentComponent,
-    UpdateCourseComponent
+    UpdateCourseComponent,
+    LeanerProgressComponent
   ],
   imports: [
     CommonModule,

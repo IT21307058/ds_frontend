@@ -16,47 +16,49 @@ export class LoginComponent {
   loginForm!: FormGroup;
   hidePassword = true;
 
-  constructor(private fb: FormBuilder, 
+  constructor(private fb: FormBuilder,
     private snackBar: MatSnackBar,
     private authService: AuthService,
-    private router: Router){
+    private router: Router) {
 
-    }
+  }
 
-    ngOnInit() :void{
-      this.loginForm = this.fb.group({
-        email:['', [Validators.required]],
-        password:['', [Validators.required]]
-      })
-    }
+  ngOnInit(): void {
+    this.loginForm = this.fb.group({
+      email: ['', [Validators.required]],
+      password: ['', [Validators.required]]
+    })
+  }
 
-    togglePasswordVisibility(){
-      this.hidePassword = !this.hidePassword;
-    }
+  togglePasswordVisibility() {
+    this.hidePassword = !this.hidePassword;
+  }
 
-    onSubmit():void{
-      // (!) used = It is used when you are confident that a certain expression 
-      // will not result in a null or undefined value.
-      const username = this.loginForm.get("email")!.value;
-      const password = this.loginForm.get("password")!.value;
+  onSubmit(): void {
+    // (!) used = It is used when you are confident that a certain expression 
+    // will not result in a null or undefined value.
+    const username = this.loginForm.get("email")!.value;
+    const password = this.loginForm.get("password")!.value;
 
-      this.authService.login(username, password).subscribe(
-        (res) => {
-          // redirect specfic role to specfic UI
-          if(UserStorageService.isAdminLoggedIn()){
-            this.router.navigateByUrl('admin/allContent')
-          }else if(UserStorageService.isInstructorLoggedIn){
-            console.log("successs");
-            this.router.navigateByUrl('instructor/allCourse')
-          }else if(UserStorageService.isLearnerLoggedIn()){
-            console.log("success");
-          }
-          // this.snackBar.open('Login Successfully!!', 'Ok', {duration: 5000});
-        },
-        (error) => {
-          this.snackBar.open('Bad Credentials', 'ERROR', {duration: 5000});
+    this.authService.login(username, password).subscribe(
+      (res) => {
+        // redirect specfic role to specfic UI
+        if (UserStorageService.isInstructorLoggedIn) {
+          this.router.navigateByUrl('instructor/allCourse')
+          console.log("successs");
+        } else if (UserStorageService.isAdminLoggedIn()) {
+          this.router.navigateByUrl('admin/allContent')
+          console.log("successs");
+        } else if (UserStorageService.isLearnerLoggedIn()) {
+          this.router.navigateByUrl('leaner/allCourse')
+          console.log("success");
         }
-      )
-    }
+        // this.snackBar.open('Login Successfully!!', 'Ok', {duration: 5000});
+      },
+      (error) => {
+        this.snackBar.open('Bad Credentials', 'ERROR', { duration: 5000 });
+      }
+    )
+  }
 
 }

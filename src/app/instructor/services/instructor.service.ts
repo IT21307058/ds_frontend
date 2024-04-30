@@ -78,6 +78,10 @@ export class InstructorService {
     });
   }
 
+  getLearnerProgressByCourse(learnerId: number): Observable<any> {
+    return this.http.get<any>(BASIC_URL + `api/instructor/course/content/progress?learnerId=${learnerId}`);
+  }
+
   private createAuthorizationHeader():HttpHeaders{
     return new HttpHeaders().set(
       "Authorization", "Bearer e" + UserStorageService.getToken()

@@ -9,7 +9,8 @@ const routes: Routes = [
   { path: 'member', loadChildren: () => import('./member/member.module').then(m => m.MemberModule) },
   { path: 'teamlead', loadChildren: () => import('./teamlead/teamlead.module').then(m => m.TeamleadModule) },
   { path: 'instructor', loadChildren: () => import('./instructor/instructor.module').then(m => m.InstructorModule) },
-  { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) }
+  { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
+  { path: 'leaner', loadChildren: () => import('./leaner/leaner.module').then(m => m.LeanerModule) }
 ];
 
 @NgModule({

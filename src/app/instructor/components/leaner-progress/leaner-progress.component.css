@@ -1,0 +1,52 @@
+.form-container {
+    margin-bottom: 20px;
+  }
+  
+  .label {
+    font-weight: bold;
+  }
+  
+  .input-field {
+    padding: 8px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  .btn {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .btn:hover {
+    background-color: #0056b3;
+  }
+  
+  .progress-container {
+    margin-top: 20px;
+  }
+  
+  .heading {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .progress-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .progress-item {
+    margin-bottom: 5px;
+  }
+  
+  .course-id {
+    font-weight: bold;
+  }
+  
+  .progress-value {
+    font-weight: bold;
+    color: #007bff;
+  }

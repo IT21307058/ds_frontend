@@ -7,6 +7,7 @@ import { AllCourseComponent } from './components/all-course/all-course.component
 import { AllContentComponent } from './components/all-content/all-content.component';
 import { UpdateContentComponent } from './components/update-content/update-content.component';
 import { UpdateCourseComponent } from './components/update-course/update-course.component';
+import { LeanerProgressComponent } from './components/leaner-progress/leaner-progress.component';
 
 const routes: Routes = [
   { path: '', component: InstructorComponent },
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: 'allCourse', component: AllCourseComponent},
   { path: 'courses/:id', component: AllContentComponent },
   { path: 'updatecontent/:id', component: UpdateContentComponent },
-  { path: 'updatecourse/:id', component: UpdateCourseComponent }
+  { path: 'updatecourse/:id', component: UpdateCourseComponent },
+  { path: 'leanerprogress', component: LeanerProgressComponent }
 ];
 
 @NgModule({
