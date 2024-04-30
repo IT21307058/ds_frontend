@@ -50,10 +50,10 @@ export class LoginComponent {
           this.router.navigateByUrl('admin/allContent')
           console.log("successs");
         } else if (UserStorageService.isLearnerLoggedIn()) {
-          this.router.navigateByUrl('leaner/allCourse')
+          this.router.navigateByUrl('')
           console.log("success");
         }
-        // this.snackBar.open('Login Successfully!!', 'Ok', {duration: 5000});
+        this.snackBar.open('Login Successfully!!', 'Ok', {duration: 5000});
       },
       (error) => {
         this.snackBar.open('Bad Credentials', 'ERROR', { duration: 5000 });

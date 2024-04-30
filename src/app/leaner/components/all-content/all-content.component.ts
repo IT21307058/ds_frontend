@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
-import { InstructorService } from 'src/app/instructor/services/instructor.service';
 import { LeanerService } from '../../services/leaner.service';
 
 @Component({
