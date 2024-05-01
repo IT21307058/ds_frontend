@@ -8,7 +8,6 @@
   </mat-toolbar>
 </div>
 
-<!--show admin login nav bar details  -->
 <div *ngIf = "isAdminLoggedIn">
   <mat-toolbar color="primary" class="navbar">
     <span class="navbar-brand">EduLoom</span>
@@ -26,8 +25,6 @@
     <button mat-button routerLink="/instructor/leanerprogress" routerLinkActive="active">Leaner Progress</button>
     <button mat-button routerLink="/instructor/addCourse" routerLinkActive="active">Course</button>
     <button mat-button routerLink="/instructor/addContent" routerLinkActive="active">Content</button>
-    <!-- <button mat-button routerLink="/instructor/courses/:id" routerLinkActive="active">Content</button>
-    <button mat-button routerLink="/instructor/updatecontent/:id" routerLinkActive="active">Update</button> -->
     <button mat-button routerLinkActive="active" (click)="logout()">Logout</button>
   </mat-toolbar>
 </div>
@@ -42,3 +39,5 @@
 </div>
 
 <router-outlet></router-outlet>
+
+<app-footer></app-footer>
