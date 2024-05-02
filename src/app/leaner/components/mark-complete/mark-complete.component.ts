@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LeanerService } from '../../services/leaner.service';
+import { UserStorageService } from 'src/app/service/storage/user-storage.service';
 
 @Component({
   selector: 'app-mark-complete',
@@ -14,6 +15,7 @@ export class MarkCompleteComponent implements OnInit{
   courseForm!: FormGroup;
   courseId:number;
   contentId: number;
+  userId: number | null = null;
 
   constructor(
     private fb:FormBuilder,
@@ -24,13 +26,19 @@ export class MarkCompleteComponent implements OnInit{
   ){}
 
   ngOnInit() :void{
+    const user = UserStorageService.getUser()
+    console.log(user)
+    if (user) {
+      this.userId = user.userId
+    }
+    
     this.route.params.subscribe(params => {
       this.courseId = params['courseId'];
       this.contentId = params['contentId'];
     });
 
     this.courseForm = this.fb.group({
-      learnerId: [null, [Validators.required]],
+      learnerId: [this.userId, [Validators.required]],
       contentId: [this.contentId, [Validators.required]],
       courseId: [this.courseId, [Validators.required]],
     })

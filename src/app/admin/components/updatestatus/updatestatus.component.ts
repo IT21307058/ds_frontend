@@ -58,15 +58,16 @@ export class UpdatestatusComponent {
 
   updateContent() {
     if (this.productForm.valid) {
-      const updates = {
-        // courseId: this.productForm.get('courseId').value,
-        // contentType: this.productForm.get('contentType').value,
-        // title: this.productForm.get('title').value,
-        // description: this.productForm.get('description').value,
-        status: this.productForm.get('status').value
-      };
+      // const updates = {
+      //   // courseId: this.productForm.get('courseId').value,
+      //   // contentType: this.productForm.get('contentType').value,
+      //   // title: this.productForm.get('title').value,
+      //   // description: this.productForm.get('description').value,
+      //   status: this.productForm.get('status').value
+      // };
+      const status = this.productForm.get('status').value;
 
-      this.adminService.patchStatusContent(this.contentId, updates)
+      this.adminService.patchStatusContent(this.contentId, status)
         .subscribe(
           (res) => {
             if (res.id != null) {
