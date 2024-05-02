@@ -1,9 +1,8 @@
 
 <div *ngIf = "!isInstructorLoggedIn && !isAdminLoggedIn && !isLearnerLoggedIn">
   <mat-toolbar color="primary" class="navbar">
-    <span class="navbar-brand">Task Managment System</span>
+    <span class="navbar-brand">EduLoom</span>
     <span class="spacer"></span>
-    <button mat-button routerLink="/order" routerLinkActive="active">Track Order</button>
     <button mat-button routerLink="/signup" routerLinkActive="active">Register</button>
     <button mat-button routerLink="/login" routerLinkActive="active">Login</button>
   </mat-toolbar>
@@ -12,7 +11,7 @@
 <!--show admin login nav bar details  -->
 <div *ngIf = "isAdminLoggedIn">
   <mat-toolbar color="primary" class="navbar">
-    <span class="navbar-brand">Task Managment System</span>
+    <span class="navbar-brand">EduLoom</span>
     <span class="spacer"></span>
     <button mat-button routerLink="/admin/allContent" routerLinkActive="active">Dashboard</button>
     <button mat-button routerLinkActive="active" (click)="logout()">Logout</button>
@@ -21,15 +20,26 @@
 
 <div *ngIf = "isInstructorLoggedIn">
   <mat-toolbar color="primary" class="navbar">
-    <span class="navbar-brand">Task Managment System</span>
+    <span class="navbar-brand">EduLoom</span>
     <span class="spacer"></span>
     <button mat-button routerLink="/instructor/allCourse" routerLinkActive="active">Dashboard</button>
     <button mat-button routerLink="/instructor/addCourse" routerLinkActive="active">Course</button>
-    <button mat-button routerLink="/instructor/addContent" routerLinkActive="active">Content</button>
+    <button mat-button routerLink="/instructor/addContent" routerLinkActive="active">Content</button> 
     <!-- <button mat-button routerLink="/instructor/courses/:id" routerLinkActive="active">Content</button>
     <button mat-button routerLink="/instructor/updatecontent/:id" routerLinkActive="active">Update</button> -->
     <button mat-button routerLinkActive="active" (click)="logout()">Logout</button>
   </mat-toolbar>
 </div>
+
+<div *ngIf = "isLearnerLoggedIn">
+  <mat-toolbar color="primary" class="navbar">
+    <span class="navbar-brand">EduLoom</span>
+    <span class="spacer"></span>
+    <button mat-button routerLink="/learner/learnerDetail" routerLinkActive="active">Dashboard</button>
+    <button mat-button routerLink="/learner/registerleaner" routerLinkActive="active">Learner</button>
+    <button mat-button routerLinkActive="active" (click)="logout()">Logout</button>
+  </mat-toolbar>
+</div>
+
 
 <router-outlet></router-outlet>

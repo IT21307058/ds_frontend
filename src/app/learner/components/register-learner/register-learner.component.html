@@ -1,0 +1,32 @@
+<div class="container">
+    <h2>Regsiter Leaner</h2>
+    <form [formGroup]="courseForm" (ngSubmit)="addCourse()">
+ 
+        <mat-form-field appearance="outline">
+            <mat-label>User Id</mat-label>
+            <input matInput type="number" formControlName="userId" placeholder="userId" required />
+            <mat-error *ngIf="courseForm.get('userId')?.hasError('required')">
+                This input is required!
+            </mat-error>
+        </mat-form-field>
+ 
+        <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Name</mat-label>
+            <input matInput type="text" placeholder="username" formControlName="username" />
+            <mat-error *ngIf="courseForm.get('username')?.hasError('required')">
+                This input is required!
+            </mat-error>
+        </mat-form-field>
+ 
+        <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Email</mat-label>
+            <input matInput type="text" placeholder="email" formControlName="email" />
+            <mat-error *ngIf="courseForm.get('email')?.hasError('required')">
+                This input is required!
+            </mat-error>
+        </mat-form-field>
+ 
+        <button mat-raised-button color="primary" type="submit">Register Leaner</button>
+       
+    </form>
+</div>

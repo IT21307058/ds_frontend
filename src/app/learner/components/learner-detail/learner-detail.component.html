@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learner Detail</title>
+</head>
+<body>
+<h1>Learner Detail</h1>
+    <div class="learner-details">
+        <div class="learner-name">{{ learner.firstName }} {{ learner.lastName }}</div>
+        <div class="learner-email">Email: {{ learner.email }}</div>
+        <!-- Display enrolled courses -->
+        <h3>Enrolled Courses:</h3>
+        <ul>
+            <li *ngFor="let course of enrolledCourses">{{ course.name }} - ${{ course.price }}</li>
+        </ul>
+        <!-- Display completed courses -->
+        <h3>Completed Courses:</h3>
+        <ul>
+            <li *ngFor="let course of completedCourses">{{ course }}</li>
+        </ul>
+        <!-- Display in-progress courses -->
+        <h3>In-Progress Courses:</h3>
+        <ul>
+            <li *ngFor="let course of inProgressCourses">{{ course }}</li>
+        </ul>
+        <!-- Display total course count -->
+        <p>Total Enrolled Courses: {{ enrolledCourseCount }}</p>
+        <p>Total Completed Courses: {{ completedCourseCount }}</p>
+        <p>Total In-Progress Courses: {{ inProgressCourseCount }}</p>
+    </div>
+</body>
+</html>
