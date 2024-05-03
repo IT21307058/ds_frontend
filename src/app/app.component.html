@@ -12,7 +12,6 @@
   <mat-toolbar color="primary" class="navbar">
     <span class="navbar-brand">EduLoom</span>
     <span class="spacer"></span>
-    <!-- <p>Welcome, {{ username }}</p> -->
     <button mat-button routerLink="/admin/allContent" routerLinkActive="active">Dashboard</button>
     <button mat-button routerLinkActive="active" (click)="logout()">Logout</button>
   </mat-toolbar>
@@ -22,9 +21,8 @@
   <mat-toolbar color="primary" class="navbar">
     <span class="navbar-brand">EduLoom</span>
     <span class="spacer"></span>
-    <p>Welcome, {{ username }}</p>
     <button mat-button routerLink="/instructor/allCourse" routerLinkActive="active">Dashboard</button>
-    <!-- <button mat-button routerLink="/instructor/leanerprogress" routerLinkActive="active">Leaner Progress</button> -->
+    <button mat-button routerLink="/instructor/leanerprogress" routerLinkActive="active">Leaner Progress</button>
     <button mat-button routerLink="/instructor/addCourse" routerLinkActive="active">Course</button>
     <button mat-button routerLink="/instructor/addContent" routerLinkActive="active">Content</button>
     <button mat-button routerLinkActive="active" (click)="logout()">Logout</button>
@@ -33,7 +31,7 @@
 
 <div *ngIf = "isLearnerLoggedIn">
   <mat-toolbar color="primary" class="navbar">
-    <span class="navbar-brand">Welcome, {{ username }}</span>
+    <span class="navbar-brand">EduLoom</span>
     <!-- <p>Welcome, {{ username }}</p> -->
     <span class="spacer"></span>
     <button mat-button routerLink="/leaner/allCourse" routerLinkActive="active">Dashboard</button>

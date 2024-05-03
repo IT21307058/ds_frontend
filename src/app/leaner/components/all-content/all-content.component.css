@@ -1,3 +1,14 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+  }
+
+  h2{
+    color: #108ee9;;
+  }
+
 .product-list{
     display: flex;
     flex-wrap: wrap;

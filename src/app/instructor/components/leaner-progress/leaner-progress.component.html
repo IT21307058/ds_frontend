@@ -1,9 +1,22 @@
 <div class="container">
   <form [formGroup]="learnerIdForm" (ngSubmit)="getLearnerProgressByCourse()" class="form-container">
-    <label for="learnerId" class="label">Enter Learner ID:</label>
-    <input type="number" id="learnerId" formControlName="learnerId" required class="input-field">
+    <!-- <label for="learnerId" class="label">Enter Learner ID:</label>
+    <input type="number" id="learnerId" formControlName="learnerId" required class="input-field"> -->
+
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Select a Course</mat-label>
+      <mat-select formControlName="learnerId" name="learnerId">
+        <mat-option *ngFor="let leaner of learnerprogresses" [value]="leaner.learnerId">
+          {{leaner.learnerId}}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="learnerIdForm.get('learnerId').hasError('required')">
+        This Input is required!
+      </mat-error>
+    </mat-form-field>
     <button type="submit" class="btn">Get Progress</button>
   </form>
+
 
   <div *ngIf="learnerProgress" class="progress-container">
     <h2 class="heading">Learner Progress by Course</h2>

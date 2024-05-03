@@ -24,8 +24,9 @@
       <mat-divider></mat-divider>
         <div class="actions">
           <!-- <button mat-raised-button color="primary" class="update-button" [routerLink]="'/'">Mark As Complete</button> -->
-          <button mat-raised-button color="accent" class="update-button" (click)="redirectToUpdatePage(content.id)">Update</button>
-          <button mat-raised-button color="warn" class="delete-button" (click)="deleteContent(content.id)">Delete</button>
+          <button mat-raised-button color="accent" class="update-button" (click)="redirectToUpdatePage(content.id)"><mat-icon>edit</mat-icon></button>
+          <button mat-raised-button color="warn" class="delete-button" (click)="deleteContent(content.id)"><mat-icon>delete</mat-icon></button>
+          <button mat-raised-button color="primary" class="download-button" (click)="downloadImage(content.processedImg, content.id)"><mat-icon>cloud_download</mat-icon></button>
         </div>
     </div>
   </mat-card>

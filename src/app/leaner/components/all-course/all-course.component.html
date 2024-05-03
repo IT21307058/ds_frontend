@@ -1,8 +1,8 @@
-
+<div class="container">
+<h2>Course List</h2>
 <ng-container>
 
     <mat-table #basicTable [dataSource]="products" class="mat-elevation-z8">
-      <caption class="table-caption">List of Courses</caption>
       <ng-container matColumnDef="id">
         <mat-header-cell *matHeaderCellDef style="font-weight: bolder; color: #003973;">Course ID</mat-header-cell>
         <mat-cell *matCellDef="let product">{{product.id}}</mat-cell>
@@ -35,3 +35,4 @@
     </mat-table>
   
   </ng-container>
+</div>

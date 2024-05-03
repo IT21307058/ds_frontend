@@ -25,8 +25,8 @@
         <mat-header-cell *matHeaderCellDef style="font-weight: bolder; color: #003973;">Action</mat-header-cell>
         <mat-cell *matCellDef="let product">
           <button mat-raised-button color="primary" style="margin: 5px;" (click)="redirectToUpdatePage(product.id)">Contents</button>
-          <button mat-raised-button color="accent" style="margin: 5px;" (click)="redirectToUpPage(product.id)">Update Course</button>
-          <button mat-raised-button color="warn" style="margin: 5px;" style="margin: 10px;" (click)="deleteCourse(product.id)">Delete</button>
+          <button mat-raised-button color="accent" style="margin: 5px;" (click)="redirectToUpPage(product.id)"><mat-icon>edit</mat-icon></button>
+          <button mat-raised-button color="warn" style="margin: 5px;" style="margin: 10px;" (click)="deleteCourse(product.id)"><mat-icon>delete</mat-icon></button>
         </mat-cell>
       </ng-container>
   

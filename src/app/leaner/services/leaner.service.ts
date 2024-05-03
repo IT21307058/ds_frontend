@@ -31,6 +31,12 @@ export class LeanerService {
     })
   }
 
+  getAllLeanerProgress():Observable<any>{
+    return this.http.get(BASIC_URL + 'api/instructor/learner/all',  {
+      headers: this.createAuthorizationHeader(),
+    })
+  }
+
 
   private createAuthorizationHeader():HttpHeaders{
     return new HttpHeaders().set(
