@@ -20,6 +20,7 @@ import { MatTableModule } from '@angular/material/table';
 import { AllCoursesComponent } from './components/all-courses/all-courses.component';
 import { AllContentComponent } from './components/all-content/all-content.component';
 import { InProgressCoursesComponent } from './components/in-progress-courses/in-progress-courses.component';
+import { CompleteCourseComponent } from './components/complete-course/complete-course.component';
 
 
 
@@ -34,7 +35,8 @@ import { InProgressCoursesComponent } from './components/in-progress-courses/in-
     RegisterLearnerComponent,
     AllCoursesComponent,
     AllContentComponent,
-    InProgressCoursesComponent
+    InProgressCoursesComponent,
+    CompleteCourseComponent
   ],
   imports: [
     CommonModule,

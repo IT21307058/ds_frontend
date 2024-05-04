@@ -28,9 +28,14 @@ cancelCourseEnrollment(learnerId: number, courseId: number): Observable<any> {
   return this.http.delete(`${BASIC_URL}/${learnerId}/unenroll/${courseId}`);
 }
 
-  getEnrolledCourses(learnerId: number): Observable<any> {
-    return this.http.get(`${BASIC_URL}/${learnerId}/enrolledCourses`);
-  }
+completeCourse(learnerId: number, courseId: number): Observable<any> {
+
+  return this.http.post(`${BASIC_URL}/${learnerId}/complete/${courseId}`, {});
+}
+
+getInProgressCourses(learnerId: number): Observable<any> {
+  return this.http.get(`${BASIC_URL}/${learnerId}/inProgressCourses`);
+}
 
   getEnrolledCoursesCount(learnerId:number):Observable<any>{
     return this.http.get(`${BASIC_URL}/${learnerId}/enrolledCoursesCount`)

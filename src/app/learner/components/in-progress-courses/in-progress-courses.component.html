@@ -19,8 +19,9 @@
       <ng-container matColumnDef="action">
         <mat-header-cell *matHeaderCellDef style="font-weight: bolder; color: #003973;">Action</mat-header-cell>
         <mat-cell *matCellDef="let product">
-          <button class="view-button" (click)="redirectToUpdatePage(product.id)">View Content</button>
-          <button mat-raised-button color="primary" style="margin-left: 5px;" (click)="redirectToUnEnrollPage(product.id, product.name)">Unenroll</button>
+          <button mat-raised-button color="primary" (click)="redirectToUpdatePage(product.id)">View Content</button>
+          <button mat-raised-button color="warn" style="margin-left: 5px;" (click)="redirectToUnEnrollPage(product.id, product.name)">Unenroll</button>
+          <button mat-raised-button color="accent" style="margin-left: 5px;" (click)="redirectToCompletePage(product.id, product.name)">Complete</button>
         </mat-cell>
       </ng-container>
   

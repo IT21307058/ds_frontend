@@ -8,6 +8,7 @@ import { AllContentComponent } from './components/all-content/all-content.compon
 import { EnrollCourseComponent } from './components/enroll-course/enroll-course.component';
 import { InProgressCoursesComponent } from './components/in-progress-courses/in-progress-courses.component';
 import { CancelEnrollmentComponent } from './components/cancel-enrollment/cancel-enrollment.component';
+import { CompleteCourseComponent } from './components/complete-course/complete-course.component';
 
 const routes: Routes = [
   { path: '', component: LearnerComponent },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'enroll-course', component: EnrollCourseComponent},
   { path: 'in-progress-courses', component: InProgressCoursesComponent},
   { path: 'cancel-enrollment', component: CancelEnrollmentComponent},
+  { path: 'complete-course', component: CompleteCourseComponent},
   // { path: 'addContent', component: PostContentComponent},
   // { path: 'allCourse', component: AllCourseComponent},
   // { path: 'courses/:id', component: AllContentComponent },

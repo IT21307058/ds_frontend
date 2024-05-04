@@ -3,6 +3,7 @@ import { LearnerService } from '../../services/learner.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { InstructorService } from 'src/app/instructor/services/instructor.service';
 import { Router } from '@angular/router';
+import { UserStorageService } from 'src/app/service/storage/user-storage.service';
 
 @Component({
   selector: 'app-in-progress-courses',
@@ -15,17 +16,23 @@ export class InProgressCoursesComponent {
   products: any;
   dataSource!: MatTableDataSource<any>;
 
-  learnerId: number = 12;
+  // learnerId: number = 12;
+  learnerId: number | null = null;
 
   constructor(private learnerService: LearnerService, private router: Router) { }
 
   ngOnInit() {
-    this.getEnrolledCourses();
+    const user = UserStorageService.getUser()
+    console.log(user)
+    if (user) {
+      this.learnerId = user.userId
+    }
+    this.getInProgressCourses();
   }
 
-  getEnrolledCourses() {
+  getInProgressCourses() {
     // Assuming you have the learnerId available
-    this.learnerService.getEnrolledCourses(this.learnerId).subscribe(courses => {
+    this.learnerService. getInProgressCourses(this.learnerId).subscribe(courses => {
       this.products = courses;
       this.dataSource = new MatTableDataSource(this.products);
     });
@@ -37,6 +44,12 @@ export class InProgressCoursesComponent {
 
   redirectToUnEnrollPage(courseId: number, courseName: string) {
     this.router.navigate([`/learner/cancel-enrollment`, { courseId, courseName }]);
+  }
+
+  redirectToCompletePage(courseId: number, courseName: string) {
+      // Handle response here. For example, navigate to a form page
+      this.router.navigate([`/learner/complete-course`, { courseId, courseName }]);
+    
   }
 
 

@@ -14,6 +14,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { LearnerService } from '../../services/learner.service';
+import { UserStorageService } from 'src/app/service/storage/user-storage.service';
 
 @Component({
   selector: 'app-learner-detail',
@@ -23,18 +24,27 @@ import { LearnerService } from '../../services/learner.service';
 export class LearnerDetailComponent implements OnInit {
 
   learner: any;
+  learnerId: number | null = null;
 
   constructor(private learnerService: LearnerService) { }
 
   ngOnInit(): void {
+    const user = UserStorageService.getUser()
+    console.log(user)
+    if (user) {
+      this.learnerId = user.userId
+    }
     this.getLearnerDetails();
   }
 
   getLearnerDetails(): void {
-    this.learnerService.getLearnerById(12).subscribe(learner => {
-      this.learner = learner;
-    });
+    if (this.learnerId) {
+      this.learnerService.getLearnerById(this.learnerId).subscribe(learner => {
+        this.learner = learner;
+      });
+    }
   }
+
 
   objectKeys(obj: any): string[] {
     return Object.keys(obj);

@@ -1,0 +1,25 @@
+<div class="container">
+    <h2>Complete the Course </h2>
+    <form [formGroup]="courseForm" (ngSubmit)="complete()">
+ 
+        <mat-form-field appearance="outline">
+            <mat-label>User Id</mat-label>
+            <input matInput type="number" formControlName="learnerId" placeholder="learnerId" required />
+            <mat-error *ngIf="courseForm.get('learnerId')?.hasError('required')">
+                This input is required!
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Course Id</mat-label>
+            <input matInput type="number" formControlName="courseId" placeholder="courseId" required />
+            <mat-error *ngIf="courseForm.get('courseId')?.hasError('required')">
+                This input is required!
+            </mat-error>
+        </mat-form-field>
+ 
+ 
+        <button mat-raised-button color="primary" type="submit">Complete</button>
+       
+    </form>
+</div>
