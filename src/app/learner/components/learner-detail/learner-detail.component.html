@@ -6,29 +6,39 @@
     <title>Learner Detail</title>
 </head>
 <body>
-<h1>Learner Detail</h1>
-    <div class="learner-details">
-        <div class="learner-name">{{ learner.firstName }} {{ learner.lastName }}</div>
-        <div class="learner-email">Email: {{ learner.email }}</div>
-        <!-- Display enrolled courses -->
-        <h3>Enrolled Courses:</h3>
-        <ul>
-            <li *ngFor="let course of enrolledCourses">{{ course.name }} - ${{ course.price }}</li>
-        </ul>
-        <!-- Display completed courses -->
-        <h3>Completed Courses:</h3>
-        <ul>
-            <li *ngFor="let course of completedCourses">{{ course }}</li>
-        </ul>
-        <!-- Display in-progress courses -->
-        <h3>In-Progress Courses:</h3>
-        <ul>
-            <li *ngFor="let course of inProgressCourses">{{ course }}</li>
-        </ul>
-        <!-- Display total course count -->
-        <p>Total Enrolled Courses: {{ enrolledCourseCount }}</p>
-        <p>Total Completed Courses: {{ completedCourseCount }}</p>
-        <p>Total In-Progress Courses: {{ inProgressCourseCount }}</p>
+    <div class="container">
+        <h1>Learner Detail</h1>
+        <div *ngIf="learner" class="learner-details">
+            <ul>
+              <li><strong>Name:</strong> {{ learner.name }}</li>
+              <li><strong>Email:</strong> {{ learner.email }}</li>
+              <li><strong>Card Number:</strong> {{ learner.cardNumber }}</li>
+            </ul>
+          </div>
+        <div *ngIf="learner" class="courses-container">
+            <div class="course-group">
+                <h3>Enrolled Courses:</h3>
+                <div *ngFor="let courseId of objectKeys(learner.enrolledCourses)" class="course">
+                    <div><strong>Name:</strong> {{ learner.enrolledCourses[courseId].name }}</div>
+                    <div><strong>Price:</strong> {{ learner.enrolledCourses[courseId].price }}</div>
+                    <div><strong>Payment Status:</strong> {{ learner.enrolledCourses[courseId].paymentStatus }}</div>
+                </div>
+            </div>
+
+            <div class="course-group">
+                <h3>Completed Courses:</h3>
+                <div *ngFor="let courseId of objectKeys(learner.completedCourses)" class="course">
+                    <div><strong>Name:</strong> {{ learner.completedCourses[courseId] }}</div>
+                </div>
+            </div>
+
+            <div class="course-group">
+                <h3>In-Progress Courses:</h3>
+                <div *ngFor="let courseId of objectKeys(learner.inProgressCourses)" class="course">
+                    <div><strong>Name:</strong> {{ learner.inProgressCourses[courseId] }}</div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>

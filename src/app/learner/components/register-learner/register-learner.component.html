@@ -1,19 +1,19 @@
 <div class="container">
     <h2>Regsiter Leaner</h2>
-    <form [formGroup]="courseForm" (ngSubmit)="addCourse()">
+    <form [formGroup]="courseForm" (ngSubmit)="register()">
  
         <mat-form-field appearance="outline">
             <mat-label>User Id</mat-label>
-            <input matInput type="number" formControlName="userId" placeholder="userId" required />
-            <mat-error *ngIf="courseForm.get('userId')?.hasError('required')">
+            <input matInput type="number" formControlName="id" placeholder="userId" required />
+            <mat-error *ngIf="courseForm.get('id')?.hasError('required')">
                 This input is required!
             </mat-error>
         </mat-form-field>
  
         <mat-form-field appearance="outline" class="form-field">
             <mat-label>Name</mat-label>
-            <input matInput type="text" placeholder="username" formControlName="username" />
-            <mat-error *ngIf="courseForm.get('username')?.hasError('required')">
+            <input matInput type="text" placeholder="name" formControlName="name" />
+            <mat-error *ngIf="courseForm.get('name')?.hasError('required')">
                 This input is required!
             </mat-error>
         </mat-form-field>
@@ -22,6 +22,13 @@
             <mat-label>Email</mat-label>
             <input matInput type="text" placeholder="email" formControlName="email" />
             <mat-error *ngIf="courseForm.get('email')?.hasError('required')">
+                This input is required!
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Card Number</mat-label>
+            <input matInput type="text" placeholder="cardnumber" formControlName="cardNumber" />
+            <mat-error *ngIf="courseForm.get('cardNumber')?.hasError('required')">
                 This input is required!
             </mat-error>
         </mat-form-field>

@@ -1,48 +1,77 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
     margin: 0;
-    padding: 20px;
-}
+    padding: 0;
+    background-color: #f4f4f4;
+    height: auto;
+  }
 
-h1 {
+  .container {
+    max-width: 1400px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  h1 {
+    text-align: center;
     color: #333;
     margin-bottom: 20px;
-}
+  }
 
-.learner-details {
-    background-color: #fff;
+  .courses-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .course-group {
+    width: 32%;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    width: 400px;
+    /* Added styling for a subtle border */
+    border: 1px solid #ddd;
+  }
+
+  .course-group h3 {
+    color: #666;
+    margin-bottom: 15px;
+  }
+
+  .course {
+    margin-bottom: 15px;
+    /* Added styling for better readability */
+    padding: 5px 10px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .course div {
+    margin-bottom: 5px;
+  }
+
+  .learner-details {
     border: 1px solid #ddd;
     border-radius: 5px;
-    padding: 20px;
-}
-
-.learner-name {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-.learner-email {
-    color: #555;
+    padding: 15px;
     margin-bottom: 20px;
-}
-
-h3 {
-    color: #666;
-    margin-bottom: 10px;
-}
-
-ul {
-    list-style-type: none;
+  }
+  
+  .learner-details ul {
+    list-style: none; /* Remove default bullet points */
     padding: 0;
-    margin-bottom: 20px;
-}
-
-li {
-    margin-bottom: 5px;
-}
-
-p {
+    margin: 0;
+  }
+  
+  .learner-details li {
     margin-bottom: 10px;
-}
+  }
+  
+  .learner-details li strong {
+    margin-right: 10px;
+  }
+  

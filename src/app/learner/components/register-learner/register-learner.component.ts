@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { InstructorService } from 'src/app/instructor/services/instructor.service';
+// import { InstructorService } from 'src/app/instructor/services/instructor.service';
+import { LearnerService } from '../../services/learner.service';
 import { UserStorageService } from 'src/app/service/storage/user-storage.service';
 
 @Component({
@@ -16,12 +17,13 @@ export class RegisterLearnerComponent {
   userId: number | null = null;
   email: string | null = null;
   username: string | null = null;
+  cardnumber: string | null = null;
  
   constructor(
     private fb:FormBuilder,
     private router: Router,
     private snackBar: MatSnackBar,
-    private instructorService: InstructorService
+    private learnerService: LearnerService
   ){}
  
   ngOnInit() :void{
@@ -34,20 +36,21 @@ export class RegisterLearnerComponent {
     }
    
     this.courseForm = this.fb.group({
-      userId: [this.userId, [Validators.required]],
-      username: [this.username, [Validators.required]],
+      id: [this.userId, [Validators.required]],
+      name: [this.username, [Validators.required]],
       email: [this.email, [Validators.required]],
+      cardNumber:['', [Validators.required]]
     })
   }
  
-  addCourse(): void{
+  register(): void{
     if(this.courseForm.valid){
-      this.instructorService.addCourse(this.courseForm.value).subscribe((res) => {
+      this.learnerService.registerLearner(this.courseForm.value).subscribe((res) => { // Call registerLearner method
         if(res.id != null){
-          this.snackBar.open('Course Posted Successfully', 'Close', {
+          this.snackBar.open('Learner Registered Successfully', 'Close', {
             duration: 5000
           });
-          this.router.navigateByUrl('/instructor/addContent');
+          this.router.navigateByUrl('/learner/allcourses'); // Redirect to /learner/allcourses
         }else{
           this.snackBar.open(res.message, 'Close', {
             duration: 5000,

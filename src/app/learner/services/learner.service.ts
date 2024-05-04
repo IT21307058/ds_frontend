@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 
-const BASIC_URL = "http://localhost:8080/"
+const BASIC_URL = "http://localhost:8080/api/v1/learners"
 
 @Injectable({
   providedIn: 'root'
@@ -21,11 +21,15 @@ export class LearnerService {
   }
 
   enrollCourse(learnerId: number, courseId: number): Observable<any> {
-    return this.http.post(`${BASIC_URL}/${learnerId}/enroll`, { courseId });
-  }
+    return this.http.post(`${BASIC_URL}/${learnerId}/enroll/${courseId}`, {});
+}
 
-  cancelCourseEnrollment(learnerId: number, courseId: number): Observable<any> {
-    return this.http.delete(`${BASIC_URL}/${learnerId}/unenroll`, { params: { courseId: courseId.toString() } });
+cancelCourseEnrollment(learnerId: number, courseId: number): Observable<any> {
+  return this.http.delete(`${BASIC_URL}/${learnerId}/unenroll/${courseId}`);
+}
+
+  getEnrolledCourses(learnerId: number): Observable<any> {
+    return this.http.get(`${BASIC_URL}/${learnerId}/enrolledCourses`);
   }
 
   getEnrolledCoursesCount(learnerId:number):Observable<any>{

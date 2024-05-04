@@ -13,6 +13,7 @@
 
 
 import { Component, OnInit } from '@angular/core';
+import { LearnerService } from '../../services/learner.service';
 
 @Component({
   selector: 'app-learner-detail',
@@ -22,40 +23,20 @@ import { Component, OnInit } from '@angular/core';
 export class LearnerDetailComponent implements OnInit {
 
   learner: any;
-  enrolledCourses: any[] = [];
-  completedCourses: string[] = [];
-  inProgressCourses: string[] = [];
-  enrolledCourseCount: number = 0;
-  completedCourseCount: number = 0;
-  inProgressCourseCount: number = 0;
 
-  constructor() { }
+  constructor(private learnerService: LearnerService) { }
 
   ngOnInit(): void {
-    // Initialize learner data
-    this.learner = {
-      firstName: 'John',
-      lastName: 'Doe',
-      email: 'john@example.com',
-      enrolledCourses: [
-        { name: 'Course A', price: 50 },
-        { name: 'Course B', price: 60 },
-        { name: 'Course C', price: 70 }
-      ],
-      completedCourses: ['Course D', 'Course E'],
-      inProgressCourses: ['Course F', 'Course G']
-    };
+    this.getLearnerDetails();
+  }
 
-    // Update enrolled courses array and counts
-    this.enrolledCourses = this.learner.enrolledCourses;
-    this.enrolledCourseCount = this.enrolledCourses.length;
+  getLearnerDetails(): void {
+    this.learnerService.getLearnerById(12).subscribe(learner => {
+      this.learner = learner;
+    });
+  }
 
-    // Update completed courses array and count
-    this.completedCourses = this.learner.completedCourses;
-    this.completedCourseCount = this.completedCourses.length;
-
-    // Update in-progress courses array and count
-    this.inProgressCourses = this.learner.inProgressCourses;
-    this.inProgressCourseCount = this.inProgressCourses.length;
+  objectKeys(obj: any): string[] {
+    return Object.keys(obj);
   }
 }

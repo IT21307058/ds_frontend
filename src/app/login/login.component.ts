@@ -51,7 +51,7 @@ export class LoginComponent {
           }
           else if(UserStorageService.isLearnerLoggedIn()){
             console.log("success");
-            this.router.navigateByUrl('learner/learnerDetail')
+            this.router.navigateByUrl('learner/registerleaner')
           }
           // this.snackBar.open('Login Successfully!!', 'Ok', {duration: 5000});
         },

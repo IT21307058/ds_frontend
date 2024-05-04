@@ -35,11 +35,13 @@
   <mat-toolbar color="primary" class="navbar">
     <span class="navbar-brand">EduLoom</span>
     <span class="spacer"></span>
-    <button mat-button routerLink="/learner/learnerDetail" routerLinkActive="active">Dashboard</button>
     <button mat-button routerLink="/learner/registerleaner" routerLinkActive="active">Learner</button>
+    <button mat-button routerLink="/learner/learnerDetail" routerLinkActive="active">Dashboard</button>
+    <button mat-button routerLink="/learner/in-progress-courses" routerLinkActive="active">In Progress Courses</button>
+    <button mat-button routerLink="/learner/allcourses" routerLinkActive="active">Courses</button>
     <button mat-button routerLinkActive="active" (click)="logout()">Logout</button>
   </mat-toolbar>
 </div>
 
 
-<router-outlet></router-outlet>
+<router-outlet></router-outlet>  

@@ -1,0 +1,60 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enroll for Course</title>
+</head>
+<body>
+    <h1>Enroll for Course</h1>
+    
+    <div>
+        <label>Course Name:</label>
+        <span>{{ courseName }}</span>
+    </div>
+    <div>
+        <label>Course ID:</label>
+        <span>{{ courseId }}</span>
+    </div>
+    
+    <form (ngSubmit)="enroll()" #enrollForm="ngForm">
+        <div>
+            <label for="learnerId">Your ID:</label>
+            <input type="number" id="learnerId" name="learnerId" formControlName="learnerId" required >
+        </div>
+        
+        <button type="submit" [disabled]="!enrollForm.valid">Enroll</button>
+    </form>
+
+    <div *ngIf="enrollSuccess">
+        Enrolled successfully! Redirecting to all courses...
+    </div>
+</body>
+</html> -->
+
+
+<div class="container">
+    <h2>Regsiter Leaner</h2>
+    <form [formGroup]="courseForm" (ngSubmit)="enroll()">
+ 
+        <mat-form-field appearance="outline">
+            <mat-label>User Id</mat-label>
+            <input matInput type="number" formControlName="learnerId" placeholder="learnerId" required />
+            <mat-error *ngIf="courseForm.get('learnerId')?.hasError('required')">
+                This input is required!
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Course Id</mat-label>
+            <input matInput type="number" formControlName="courseId" placeholder="courseId" required />
+            <mat-error *ngIf="courseForm.get('courseId')?.hasError('required')">
+                This input is required!
+            </mat-error>
+        </mat-form-field>
+ 
+ 
+        <button mat-raised-button color="primary" type="submit">Enroll</button>
+       
+    </form>
+</div>

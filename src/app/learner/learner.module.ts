@@ -17,6 +17,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
+import { AllCoursesComponent } from './components/all-courses/all-courses.component';
+import { AllContentComponent } from './components/all-content/all-content.component';
+import { InProgressCoursesComponent } from './components/in-progress-courses/in-progress-courses.component';
 
 
 
@@ -28,7 +31,10 @@ import { MatTableModule } from '@angular/material/table';
     CancelEnrollmentComponent,
     CourseCountComponent,
     UpdateProgressComponent,
-    RegisterLearnerComponent
+    RegisterLearnerComponent,
+    AllCoursesComponent,
+    AllContentComponent,
+    InProgressCoursesComponent
   ],
   imports: [
     CommonModule,
