@@ -1,0 +1,28 @@
+.email-toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 5px;
+  padding: 15px 20px;
+  animation: slideIn 0.5s ease-in-out, fadeOut 0.5s ease-in-out 4.5s forwards;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

@@ -10,12 +10,14 @@ import { SignupComponent } from './signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
+import { EmailToastComponent } from './email-toast/email-toast.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    EmailToastComponent
   ],
   imports: [
     BrowserModule,

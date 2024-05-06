@@ -4,6 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { LearnerService } from '../../services/learner.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserStorageService } from 'src/app/service/storage/user-storage.service';
+import {EmailToastComponent} from "../../../email-toast/email-toast.component";
 
 @Component({
   selector: 'app-enroll-course',
@@ -17,16 +18,16 @@ export class EnrollCourseComponent {
   courseId:number | null = null;
   courseName:string | null = null;
 
- 
+
   constructor(
-    private route: ActivatedRoute, 
+    private route: ActivatedRoute,
     private fb:FormBuilder,
     private router: Router,
     private snackBar: MatSnackBar,
     private learnerService: LearnerService
   ){}
- 
-  
+
+
   ngOnInit() :void{
     this.route.params.subscribe(params => {
       this.courseId = params['courseId'];
@@ -37,21 +38,28 @@ export class EnrollCourseComponent {
     if (user) {
       this.userId = user.userId
     }
-   
+
     this.courseForm = this.fb.group({
       learnerId: [this.userId, [Validators.required]],
       courseId: [this.courseId, [Validators.required]]
 
     })
   }
-  
- 
+
+
   enroll(): void{
     if(this.courseForm.valid){
       this.learnerService.enrollCourse(this.userId, this.courseId).subscribe(() => { // Call enrollCourse method
-        this.snackBar.open('Learner Registered Successfully', 'Close', {
-          duration: 5000
+        // this.snackBar.open('Learner Registered Successfully', 'Close', {
+        //   duration: 5000
+        // });
+        this.snackBar.openFromComponent(EmailToastComponent, {
+          duration: 5000,
+          horizontalPosition: 'end',
+          verticalPosition: 'top',
+          panelClass: ['email-toast']
         });
+
         this.router.navigateByUrl('/learner/allcourses'); // Redirect to /learner/allcourses
       }, error => {
         this.snackBar.open(error.message, 'Close', {
@@ -63,8 +71,8 @@ export class EnrollCourseComponent {
       this.courseForm.markAllAsTouched();
     }
   }
-  
-  
+
+
 
 
 }
