@@ -38,4 +38,6 @@ export class AllCoursesComponent implements OnInit {
     this.router.navigate([`/learner/enroll-course`, { courseId, courseName }]);
   }
 
+
+
 }
