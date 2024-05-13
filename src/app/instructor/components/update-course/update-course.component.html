@@ -1,0 +1,44 @@
+<div class="container">
+    <h2>Update Course Details</h2>
+
+    <form [formGroup]="productForm" (ngSubmit)="updateCourse()">
+
+        <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Course Id</mat-label>
+            <input matInput type="text" formControlName="courseId" placeholder="courseId" required />
+            <mat-error *ngIf="productForm.get('courseId').hasError('required')">
+                This Input is required!
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Course Name</mat-label>
+            <input matInput type="text" formControlName="courseName" placeholder="courseName" required />
+            <mat-error *ngIf="productForm.get('courseName')?.hasError('required')">
+                This input is required!
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Course Description</mat-label>
+            <input matInput type="text" formControlName="description" placeholder="description" required />
+            <mat-error *ngIf="productForm.get('description')?.hasError('required')">
+                This input is required!
+            </mat-error>
+        </mat-form-field>
+
+        
+        <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Course Price</mat-label>
+            <input matInput type="text" placeholder="coursePrice" formControlName="coursePrice" />
+            <mat-error *ngIf="productForm.get('coursePrice')?.hasError('required')">
+                This input is required!
+            </mat-error>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" type="submit">Update Content</button>
+    </form>
+</div>
+
+
+

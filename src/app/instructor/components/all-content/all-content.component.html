@@ -1,13 +1,4 @@
-<form [formGroup]="" class="search-from">
- <mat-form-field appearance="outline" class="search-input">
-  <mat-label>Enter keyword to search</mat-label>
-  <input matInput formControlName="title">
-
-  <button mat-button matSuffix color="primary" class="update-button" disabled="searchProductForm.invalid">
-    <mat-icon>search</mat-icon>
-  </button>
- </mat-form-field>
-</form>
+<h2>Content List</h2>
 <div class="product-list">
   <mat-card class="product-card" *ngFor="let content of contents">
     <div class="product-image">
@@ -32,9 +23,11 @@
 
       <mat-divider></mat-divider>
         <div class="actions">
-          <button mat-raised-button color="primary" class="update-button" [routerLink]="'/'">FAQ</button>
+          <!-- <button mat-raised-button color="primary" class="update-button" [routerLink]="'/'">FAQ</button> -->
           <button mat-raised-button color="accent" class="update-button" (click)="redirectToUpdatePage(content.id)">Update</button>
-          <button mat-raised-button color="warn" class="delete-button" [routerLink]="'/'">FAQ</button>
+          <!-- <button mat-raised-button color="warn" class="delete-button" [routerLink]="'/'">FAQ</button> -->
+          <button mat-raised-button color="warn" class="delete-button" (click)="deleteContent(content.id)"><mat-icon>delete</mat-icon></button>
+          <button mat-raised-button color="primary" class="download-button" (click)="downloadImage(content.processedImg, content.id)"><mat-icon>cloud_download</mat-icon></button>
         </div>
     </div>
   </mat-card>

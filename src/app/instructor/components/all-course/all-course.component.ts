@@ -53,6 +53,11 @@ export class AllCourseComponent implements OnInit{
     this.router.navigate([`/instructor/courses/`, courseId]);
   }
 
+  redirectToUpPage(courseId: number) {
+    this.router.navigate([`/instructor/updatecourse/`, courseId]);
+  }
+
+
   // getAllCourse(){
   //   this.instructorService.getAllCourse().subscribe({
   //     next: (res) => {

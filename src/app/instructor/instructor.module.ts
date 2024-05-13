@@ -15,6 +15,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { AllContentComponent } from './components/all-content/all-content.component';
 import { MatButtonModule } from '@angular/material/button';
 import { UpdateContentComponent } from './components/update-content/update-content.component';
+import { LeanerProgressComponent } from './components/leaner-progress/leaner-progress.component';
+import { UpdateCourseComponent } from './components/update-course/update-course.component';
 
 
 
@@ -25,7 +27,9 @@ import { UpdateContentComponent } from './components/update-content/update-conte
     PostContentComponent,
     AllCourseComponent,
     AllContentComponent,
-    UpdateContentComponent
+    UpdateContentComponent,
+    LeanerProgressComponent,
+    UpdateCourseComponent
   ],
   imports: [
     CommonModule,

@@ -21,6 +21,7 @@ import { AllCoursesComponent } from './components/all-courses/all-courses.compon
 import { AllContentComponent } from './components/all-content/all-content.component';
 import { InProgressCoursesComponent } from './components/in-progress-courses/in-progress-courses.component';
 import { CompleteCourseComponent } from './components/complete-course/complete-course.component';
+import { MarkCompleteComponent } from './components/mark-complete/mark-complete.component';
 
 
 
@@ -36,7 +37,8 @@ import { CompleteCourseComponent } from './components/complete-course/complete-c
     AllCoursesComponent,
     AllContentComponent,
     InProgressCoursesComponent,
-    CompleteCourseComponent
+    CompleteCourseComponent,
+    MarkCompleteComponent
   ],
   imports: [
     CommonModule,

@@ -9,6 +9,7 @@ import { EnrollCourseComponent } from './components/enroll-course/enroll-course.
 import { InProgressCoursesComponent } from './components/in-progress-courses/in-progress-courses.component';
 import { CancelEnrollmentComponent } from './components/cancel-enrollment/cancel-enrollment.component';
 import { CompleteCourseComponent } from './components/complete-course/complete-course.component';
+import { MarkCompleteComponent } from './components/mark-complete/mark-complete.component';
 
 const routes: Routes = [
   { path: '', component: LearnerComponent },
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'in-progress-courses', component: InProgressCoursesComponent},
   { path: 'cancel-enrollment', component: CancelEnrollmentComponent},
   { path: 'complete-course', component: CompleteCourseComponent},
+  { path: 'markContent/:courseId/:contentId', component: MarkCompleteComponent}
   // { path: 'addContent', component: PostContentComponent},
   // { path: 'allCourse', component: AllCourseComponent},
   // { path: 'courses/:id', component: AllContentComponent },
