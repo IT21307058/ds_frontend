@@ -65,7 +65,7 @@
             <mat-label>Status</mat-label>
             <mat-select formControlName="status" placeholder="Status" required>
                 <mat-option value="Accepted">Accepted</mat-option>
-                <mat-option value="Not Accepted">Not Accepted</mat-option>
+                <!-- <mat-option value="Not Accepted">Not Accepted</mat-option> -->
             </mat-select>
             <mat-error *ngIf="productForm.get('status')?.hasError('required')">
                 This input is required!
