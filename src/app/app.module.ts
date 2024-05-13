@@ -11,13 +11,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
 import { EmailToastComponent } from './email-toast/email-toast.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     SignupComponent,
-    EmailToastComponent
+    EmailToastComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
