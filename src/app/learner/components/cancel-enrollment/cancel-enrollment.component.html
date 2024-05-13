@@ -4,7 +4,7 @@
  
         <mat-form-field appearance="outline">
             <mat-label>User Id</mat-label>
-            <input matInput type="number" formControlName="learnerId" placeholder="learnerId" required />
+            <input matInput type="number" formControlName="learnerId" placeholder="learnerId" required required readonly/>
             <mat-error *ngIf="courseForm.get('learnerId')?.hasError('required')">
                 This input is required!
             </mat-error>
@@ -12,7 +12,7 @@
 
         <mat-form-field appearance="outline">
             <mat-label>Course Id</mat-label>
-            <input matInput type="number" formControlName="courseId" placeholder="courseId" required />
+            <input matInput type="number" formControlName="courseId" placeholder="courseId" required required readonly/>
             <mat-error *ngIf="courseForm.get('courseId')?.hasError('required')">
                 This input is required!
             </mat-error>

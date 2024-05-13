@@ -49,7 +49,7 @@ export class CompleteCourseComponent {
   complete(): void{
     if(this.courseForm.valid){
       this.learnerService.completeCourse(this.userId, this.courseId).subscribe(() => { // Call cancelCourseEnrollment method
-        this.snackBar.open('Course Unenrolled Successfully', 'Close', {
+        this.snackBar.open('Course Completed Successfully', 'Close', {
           duration: 5000
         });
         this.router.navigateByUrl('/learner/in-progress-courses'); // Redirect to /learner/in-progress-courses
