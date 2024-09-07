@@ -1,4 +1,4 @@
-.container{
+/* .container{
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
@@ -45,6 +45,85 @@
             .mat-form-field{
                 margin-bottom: 10px;
             }
+        }
+    }
+} */
+
+
+/* Container Styles */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 30px;
+    margin-top: 40px;
+    background-color: #ffffff; /* Light background for contrast */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow for a polished look */
+    border-radius: 8px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #6075ef; /* Primary color */
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+mat-form-field {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.mat-input-element {
+    font-size: 16px;
+    color: #333; /* Darker text for contrast */
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline-thick {
+    border-color: #3f51b5; /* Primary color for form field outline */
+}
+
+button {
+    align-self: center;
+    padding: 12px 40px;
+    background-color: #3f51b5; /* Button in primary color */
+    color: white;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #303f9f; /* Slightly darker on hover */
+}
+
+.mat-error {
+    font-size: 12px;
+    color: #f44336; /* Error message in red */
+}
+
+/* Responsive Media Queries */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+
+    form {
+        .mat-form-field {
+            margin-bottom: 15px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
         }
     }
 }
