@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -41,4 +41,94 @@
         </div>
     </div>
 </body>
-</html>
+</html> -->
+
+
+<div class="container">
+    <h1>Learner Detail</h1>
+  
+    <!-- Tabs Section -->
+    <div class="tabs">
+      <button
+        class="tab-button"
+        [class.active]="activeTab === 'learner-details'"
+        (click)="setActiveTab('learner-details')"
+      >
+        Learner Details
+      </button>
+      <button
+        class="tab-button"
+        [class.active]="activeTab === 'enrolled-courses'"
+        (click)="setActiveTab('enrolled-courses')"
+      >
+        Enrolled Courses
+      </button>
+      <button
+        class="tab-button"
+        [class.active]="activeTab === 'completed-courses'"
+        (click)="setActiveTab('completed-courses')"
+      >
+        Completed Courses
+      </button>
+      <button
+        class="tab-button"
+        [class.active]="activeTab === 'in-progress-courses'"
+        (click)="setActiveTab('in-progress-courses')"
+      >
+        In-Progress Courses
+      </button>
+    </div>
+  
+    <!-- Learner Details Tab Content -->
+    <div [class.active]="activeTab === 'learner-details'" class="tab-content">
+      <ul>
+        <li><strong>Name:</strong> {{ learner.name }}</li>
+        <li><strong>Email:</strong> {{ learner.email }}</li>
+        <li><strong>Card Number:</strong> {{ learner.cardNumber }}</li>
+      </ul>
+    </div>
+  
+    <!-- Enrolled Courses Tab Content -->
+    <div [class.active]="activeTab === 'enrolled-courses'" class="tab-content">
+      <h3>Enrolled Courses</h3>
+      <div class="card-group">
+        <div class="card" *ngFor="let courseId of objectKeys(learner.enrolledCourses)">
+          <div class="card-body">
+            <h4>{{ learner.enrolledCourses[courseId].name }}</h4>
+            <p><strong>Price:</strong> {{ learner.enrolledCourses[courseId].price }}</p>
+            <p><strong>Payment Status:</strong> {{ learner.enrolledCourses[courseId].paymentStatus }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Completed Courses Tab Content -->
+    <div [class.active]="activeTab === 'completed-courses'" class="tab-content">
+      <h3>Completed Courses</h3>
+      <div class="card-group">
+        <div class="card" *ngFor="let courseId of objectKeys(learner.completedCourses)">
+          <div class="card-body">
+            <h4>{{ learner.completedCourses[courseId] }}</h4>
+            <p>Completed on: [Add completion date]</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- In-Progress Courses Tab Content -->
+    <div [class.active]="activeTab === 'in-progress-courses'" class="tab-content">
+      <h3>In-Progress Courses</h3>
+      <div class="card-group">
+        <div class="card" *ngFor="let courseId of objectKeys(learner.inProgressCourses)">
+          <div class="card-body">
+            <h4>{{ learner.inProgressCourses[courseId] }}</h4>
+            <p>Progress: [Add progress details]</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+
+

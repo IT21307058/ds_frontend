@@ -1,25 +1,4 @@
-<!-- <div class="product-dashboard">
-  <h2>All Courses</h2>
-  <div *ngIf="products.length > 0; else loading">
-      <div *ngFor="let product of products" class="product-card">
-          <div class="product-details">
-              <p>{{ product.id }}</p>
-              <h3>{{ product.name }}</h3>
-              <p>{{ product.description }}</p>
-          </div>
-          <div class="button-container">
-            <button class="view-button" (click)="redirectToUpdatePage(product.id)">View Content</button>
-            <button class="delete-button">Delete</button>
-        </div>
-      </div>
-  </div>
-  <ng-template #loading>
-      <p>Loading products...</p>
-  </ng-template>
-</div> -->
-
-
-<ng-container>
+<!-- <ng-container>
 
     <mat-table #basicTable [dataSource]="products" class="mat-elevation-z8">
       <ng-container matColumnDef="id">
@@ -54,4 +33,27 @@
   
   </ng-container>
 
+ -->
 
+
+ <div class="course-list-container">
+    <div class="course-card" *ngFor="let product of products">
+        <div class="course-content">
+            <h3>{{ product.name }}</h3>
+            <p>{{ product.description }}</p>
+            <div class="course-price">{{ product.coursePrice }} $</div>
+        </div>
+        <div class="button-container">
+            <button class="view-button" (click)="redirectToUpdatePage(product.id)">View Content</button>
+            <button class="enroll-button" (click)="redirectToEnrollPage(product.id, product.name)">Enroll</button>
+            <!-- <button class="delete-button" (click)="deleteProduct(product.id)">Delete</button> -->
+        </div>
+    </div>
+</div>
+
+<ng-template #loading>
+    <div class="spinner">
+        <mat-spinner></mat-spinner>
+        <p>Loading courses...</p>
+    </div>
+</ng-template>

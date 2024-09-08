@@ -1,4 +1,4 @@
-
+/* 
 .view-button {
     padding: 5px;
     background-color: green;
@@ -48,4 +48,113 @@
   
   .mat-progress-spinner circle{
     stroke: #003973;
+  } */
+
+
+
+
+  /* Overall Container */
+.course-list-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive grid layout */
+  gap: 20px;
+  padding: 40px;
+  background-color: #f4f4f9;
+}
+
+/* Individual Course Card */
+.course-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow for card effect */
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-10px); /* Lift-up effect on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Card Content */
+.course-content {
+  padding: 20px;
+}
+
+.course-content h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #003973;
+}
+
+.course-content p {
+  font-size: 14px;
+  color: #555555;
+  margin-bottom: 15px;
+}
+
+/* Course Price */
+.course-price {
+  font-size: 18px;
+  color: #4caf50; /* Green for price */
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* Button Container */
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #ffffff;
+  border-top: 1px solid #ffffff;
+}
+
+/* Button Styles */
+button {
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+/* View Button */
+.view-button {
+  background-color: #3f51b5; /* Blue for View Content */
+  color: white;
+}
+
+.enroll-button {
+  background-color: #4caf50; /* Green for Enroll */
+  color: white;
+}
+
+.delete-button {
+  background-color: #f44336; /* Red for Delete */
+  color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .course-list-container {
+      grid-template-columns: 1fr; /* Full-width cards on small screens */
   }
+
+  .course-content h3 {
+      font-size: 18px;
+  }
+
+  .course-content p {
+      font-size: 13px;
+  }
+}

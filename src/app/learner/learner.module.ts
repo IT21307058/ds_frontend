@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 
 import { LearnerRoutingModule } from './learner-routing.module';
 import { LearnerComponent } from './learner.component';
-import { LearnerDetailComponent } from './components/learner-detail/learner-detail.component';
+
 import { EnrollCourseComponent } from './components/enroll-course/enroll-course.component';
 import { CancelEnrollmentComponent } from './components/cancel-enrollment/cancel-enrollment.component';
 import { CourseCountComponent } from './components/course-count/course-count.component';
@@ -28,7 +28,7 @@ import { MarkCompleteComponent } from './components/mark-complete/mark-complete.
 @NgModule({
   declarations: [
     LearnerComponent,
-    LearnerDetailComponent,
+  
     EnrollCourseComponent,
     CancelEnrollmentComponent,
     CourseCountComponent,

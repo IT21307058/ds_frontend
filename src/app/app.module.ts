@@ -12,6 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
 import { EmailToastComponent } from './email-toast/email-toast.component';
 import { FooterComponent } from './footer/footer.component';
+import { MatTabsModule } from '@angular/material/tabs';
+import { LearnerDetailComponent } from './learner/components/learner-detail/learner-detail.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { FooterComponent } from './footer/footer.component';
     LoginComponent,
     SignupComponent,
     EmailToastComponent,
-    FooterComponent
+    FooterComponent,
+    LearnerDetailComponent 
+    
   ],
   imports: [
     BrowserModule,
@@ -29,7 +33,9 @@ import { FooterComponent } from './footer/footer.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatTableModule
+    MatTableModule,
+    MatTabsModule,
+  
   ],
   providers: [],
   bootstrap: [AppComponent]
