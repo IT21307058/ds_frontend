@@ -4,7 +4,7 @@
  
         <mat-form-field appearance="outline">
             <mat-label>User Id</mat-label>
-            <input matInput type="number" formControlName="id" placeholder="userId" required />
+            <input matInput type="number" formControlName="id" placeholder="userId" required readonly />
             <mat-error *ngIf="courseForm.get('id')?.hasError('required')">
                 This input is required!
             </mat-error>
@@ -16,21 +16,28 @@
             <mat-error *ngIf="courseForm.get('name')?.hasError('required')">
                 This input is required!
             </mat-error>
+            <mat-error *ngIf="courseForm.get('name')?.hasError('minlength') && courseForm.get('name')?.touched">
+                Name must be at least 3 characters long.
+              </mat-error>
         </mat-form-field>
  
         <mat-form-field appearance="outline" class="form-field">
             <mat-label>Email</mat-label>
-            <input matInput type="text" placeholder="email" formControlName="email" />
+            <input matInput type="text" placeholder="email" formControlName="email" required readonly />
             <mat-error *ngIf="courseForm.get('email')?.hasError('required')">
                 This input is required!
             </mat-error>
         </mat-form-field>
+
         <mat-form-field appearance="outline" class="form-field">
             <mat-label>Card Number</mat-label>
             <input matInput type="text" placeholder="cardnumber" formControlName="cardNumber" />
             <mat-error *ngIf="courseForm.get('cardNumber')?.hasError('required')">
                 This input is required!
             </mat-error>
+            <mat-error *ngIf="courseForm.get('cardNumber')?.hasError('pattern') && courseForm.get('cardNumber')?.touched">
+                Card number must be exactly 16 digits.
+              </mat-error>
         </mat-form-field>
  
         <button mat-raised-button color="primary" type="submit">Register Leaner</button>

@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 // import { InstructorService } from 'src/app/instructor/services/instructor.service';
 import { LearnerService } from '../../services/learner.service';
 import { UserStorageService } from 'src/app/service/storage/user-storage.service';
+import { DomSanitizer } from '@angular/platform-browser';
+import * as DOMPurify from 'dompurify';
 
 @Component({
   selector: 'app-register-learner',
@@ -23,7 +25,8 @@ export class RegisterLearnerComponent {
     private fb:FormBuilder,
     private router: Router,
     private snackBar: MatSnackBar,
-    private learnerService: LearnerService
+    private learnerService: LearnerService,
+    private sanitizer: DomSanitizer
   ){}
  
   ngOnInit() :void{
@@ -37,14 +40,23 @@ export class RegisterLearnerComponent {
    
     this.courseForm = this.fb.group({
       id: [this.userId, [Validators.required]],
-      name: [this.username, [Validators.required]],
+      name: [this.username, [Validators.required, Validators.minLength(3)]],
       email: [this.email, [Validators.required]],
-      cardNumber:['', [Validators.required]]
+      cardNumber:['', [Validators.required, Validators.pattern('^[0-9]{16}$')]]
     })
   }
+
  
   register(): void{
     if(this.courseForm.valid){
+      const sanitizedValues = {
+        id: this.courseForm.get('id')?.value,
+        name: DOMPurify.sanitize(this.courseForm.get('name')?.value),
+        email: this.courseForm.get('email')?.value,
+        cardnumber: DOMPurify.sanitize(this.courseForm.get('cardNumber')?.value),
+      };
+
+      console.log('sanitizedValues', sanitizedValues);
       this.learnerService.registerLearner(this.courseForm.value).subscribe((res) => { // Call registerLearner method
         if(res.id != null){
           this.snackBar.open('Learner Registered Successfully', 'Close', {
