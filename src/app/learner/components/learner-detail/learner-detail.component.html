@@ -81,11 +81,23 @@
   
     <!-- Learner Details Tab Content -->
     <div [class.active]="activeTab === 'learner-details'" class="tab-content">
-      <ul>
-        <li><strong>Name:</strong> {{ learner.name }}</li>
-        <li><strong>Email:</strong> {{ learner.email }}</li>
-        <li><strong>Card Number:</strong> {{ learner.cardNumber }}</li>
-      </ul>
+      <div class="learner-card">
+        <h2>Learner Information</h2>
+        <div class="learner-info">
+          <div class="info-item">
+            <i class="fas fa-user"></i>
+            <span><strong>Name:</strong> {{ learner.name }}</span>
+          </div>
+          <div class="info-item">
+            <i class="fas fa-envelope"></i>
+            <span><strong>Email:</strong> {{ learner.email }}</span>
+          </div>
+          <div class="info-item">
+            <i class="fas fa-id-card"></i>
+            <span><strong>Card Number:</strong> {{ learner.cardNumber }}</span>
+          </div>
+        </div>
+      </div>
     </div>
   
     <!-- Enrolled Courses Tab Content -->

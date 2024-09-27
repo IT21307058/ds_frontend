@@ -172,5 +172,51 @@
     margin: 8px 0;
     color: #555;
   }
+
+
+
+
+
+  /* Additional Styling for Learner Details */
+.learner-card {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.learner-card h2 {
+  text-align: left;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #003973;
+  border-bottom: 2px solid #003973;
+  padding-bottom: 10px;
+}
+
+.learner-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  color: #555;
+}
+
+.info-item i {
+  font-size: 24px;
+  margin-right: 10px;
+  color: #003973;
+}
+
+.info-item strong {
+  color: #003973;
+}
+
   
   
