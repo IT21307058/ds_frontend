@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { InstructorService } from '../../services/instructor.service';
+import { UserStorageService } from 'src/app/service/storage/user-storage.service';
 
 @Component({
   selector: 'app-post-content',
@@ -16,12 +17,14 @@ export class PostContentComponent {
   listOfContent: any[];
   selectedFile: File | null;
   imagePreview: String | ArrayBuffer | null;
+  isInstructor: boolean = false;
 
   constructor(
     private fb: FormBuilder,
     private router: Router,
     private snackBar: MatSnackBar,
-    private instructorService: InstructorService 
+    private instructorService: InstructorService,
+    private userStorage:UserStorageService
   ){
 
   }
@@ -52,6 +55,13 @@ export class PostContentComponent {
     // get all categories
     this.getAllCourse();
     this.getAllContent();
+
+    const user = UserStorageService.getUser()
+    if (user && user.role === 'INSTRUCTOR') {
+      this.isInstructor = true;
+    } else {
+      this.router.navigate(['/unauthroized']);
+    }
   }
 
   getAllCourse(){

@@ -4,6 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AuthService } from '../service/auth/auth.service';
 import { UserStorageService } from '../service/storage/user-storage.service';
+import { MyHttpClientService } from '../my-http-client.service';
 
 @Component({
   selector: 'app-login',
@@ -15,11 +16,13 @@ export class LoginComponent {
 
   loginForm!: FormGroup;
   hidePassword = true;
+  url: string = "";
 
   constructor(private fb: FormBuilder, 
     private snackBar: MatSnackBar,
     private authService: AuthService,
-    private router: Router){
+    private router: Router,
+    private http: MyHttpClientService){
 
     }
 
@@ -28,6 +31,8 @@ export class LoginComponent {
         email:['', [Validators.required]],
         password:['', [Validators.required]]
       })
+
+      this.http.get("/auth/url").subscribe((data: any) => this.url = data.authURL);
     }
 
     togglePasswordVisibility(){

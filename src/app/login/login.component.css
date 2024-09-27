@@ -58,7 +58,8 @@ button{
     justify-content: center;
     align-items: center;
     height: 90vh;
-    background-color: #f4f7fc; /* Light background */
+    background-color: #f4f7fc;
+    /* Light background */
     padding: 20px;
 }
 
@@ -68,14 +69,17 @@ mat-card {
     width: 100%;
     padding: 30px;
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
-    background-color: #ffffff; /* Card background */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    /* Soft shadow for depth */
+    background-color: #ffffff;
+    /* Card background */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 mat-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15); /* Lift effect on hover */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    /* Lift effect on hover */
 }
 
 /* Title Styles */
@@ -85,7 +89,8 @@ mat-card-title {
     font-weight: 600;
     color: #333;
     margin-bottom: 20px;
-    font-family: 'Poppins', sans-serif; /* Modern font */
+    font-family: 'Poppins', sans-serif;
+    /* Modern font */
 }
 
 /* Form Styles */
@@ -111,7 +116,8 @@ button {
     padding: 12px 0;
     font-size: 16px;
     font-weight: bold;
-    background-color: #1976d2; /* Primary color */
+    background-color: #1976d2;
+    /* Primary color */
     color: #fff;
     border-radius: 4px;
     text-transform: uppercase;
@@ -119,7 +125,8 @@ button {
 }
 
 button:hover {
-    background-color: #1565c0; /* Darker on hover */
+    background-color: #1565c0;
+    /* Darker on hover */
 }
 
 /* Card Actions Styles */
@@ -179,4 +186,50 @@ mat-card-actions button:hover {
 
 .password-visibility-icon {
     cursor: pointer;
+}
+
+.google-login-container {
+    text-align: center;
+    /* Center the button horizontally */
+    margin-top: 20px;
+    /* Adds some spacing above the button */
+}
+
+.google-login-button {
+    display: inline-flex;
+    /* Aligns logo and text in a row */
+    align-items: center;
+    /* Vertically center logo and text */
+    background-color: #4285F4;
+    /* Google's blue color */
+    color: white;
+    /* Text color */
+    padding: 10px 24px;
+    /* Padding for better touch target */
+    text-decoration: none;
+    /* Remove underline */
+    border-radius: 5px;
+    /* Rounded corners */
+    font-weight: 500;
+    /* Medium text weight */
+    font-size: 16px;
+    /* Slightly larger text */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow for depth */
+    transition: background-color 0.3s ease;
+    /* Smooth hover transition */
+}
+
+.google-login-button:hover {
+    background-color: #357ae8;
+    /* Darken on hover */
+}
+
+.google-logo {
+    width: 24px;
+    /* Scales logo size down */
+    margin-right: 12px;
+    /* Adds space between logo and text */
+    vertical-align: middle;
+    /* Aligns logo with text */
 }

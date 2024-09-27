@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { InstructorService } from '../../services/instructor.service';
 import { LearnerService } from 'src/app/learner/services/learner.service';
+import { UserStorageService } from 'src/app/service/storage/user-storage.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-leaner-progress',
@@ -14,8 +16,9 @@ export class LeanerProgressComponent implements OnInit{
   learnerIdForm: FormGroup;
   learnerProgress: Map<number, number>;
   learnerprogresses: any[];
+  isInstructor: boolean = false;
 
-  constructor(private http: HttpClient, private formBuilder: FormBuilder, private instructorService: InstructorService, private leanerService: LearnerService) { }
+  constructor(private http: HttpClient,private router: Router, private formBuilder: FormBuilder, private instructorService: InstructorService, private leanerService: LearnerService) { }
 
   ngOnInit(): void {
     this.learnerIdForm = this.formBuilder.group({
@@ -23,6 +26,13 @@ export class LeanerProgressComponent implements OnInit{
     });
 
     this.loadleanerprogress();
+
+    const user = UserStorageService.getUser()
+    if (user && user.role === 'INSTRUCTOR') {
+      this.isInstructor = true;
+    } else {
+      this.router.navigate(['/unauthroized']);
+    }
   }
 
   getLearnerProgressByCourse(): void {

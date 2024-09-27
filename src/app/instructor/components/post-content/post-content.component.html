@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="isInstructor">
     <h2>Add Course Content</h2>
 
     <form [formGroup]="productForm" (ngSubmit)="addContent()">

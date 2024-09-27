@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { InstructorService } from '../../services/instructor.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { UserStorageService } from 'src/app/service/storage/user-storage.service';
 
 @Component({
   selector: 'app-update-content',
@@ -12,6 +13,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class UpdateContentComponent {
   contentId: number;
   productForm: FormGroup; // Declare FormGroup for the form
+  isInstructor: boolean = false;
 
   constructor(
     private instructorService: InstructorService,
@@ -35,6 +37,13 @@ export class UpdateContentComponent {
       description: [''],
       status: ['', Validators.required]
     });
+
+    const user = UserStorageService.getUser()
+    if (user && user.role === 'INSTRUCTOR') {
+      this.isInstructor = true;
+    } else {
+      this.router.navigate(['/unauthroized']);
+    }
   }
 
   loadContent(contentId: number) {

@@ -27,6 +27,12 @@
 
                 <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid"
                 (click)="onSubmit()">Login</button>
+                <div class="google-login-container">
+                    <a href="{{url}}">
+                        <img src="assets/google-system.png" alt="Google logo" width="48" style="vertical-align: middle; margin-right: 8px;"> Login with Google
+                    </a>
+                </div>
+                
             </form>
         </mat-card-content>
 

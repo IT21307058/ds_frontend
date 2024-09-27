@@ -14,6 +14,9 @@ import { EmailToastComponent } from './email-toast/email-toast.component';
 import { FooterComponent } from './footer/footer.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { LearnerDetailComponent } from './learner/components/learner-detail/learner-detail.component';
+import { PrivateContentComponent } from './private-content/private-content.component';
+import { PublicContentComponent } from './public-content/public-content.component';
+import { UnauthroizedComponent } from './unauthroized/unauthroized.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { LearnerDetailComponent } from './learner/components/learner-detail/lear
     SignupComponent,
     EmailToastComponent,
     FooterComponent,
-    LearnerDetailComponent 
+    LearnerDetailComponent ,
+    PrivateContentComponent,
+    PublicContentComponent,
+    UnauthroizedComponent
     
   ],
   imports: [
@@ -35,6 +41,7 @@ import { LearnerDetailComponent } from './learner/components/learner-detail/lear
     HttpClientModule,
     MatTableModule,
     MatTabsModule,
+
   
   ],
   providers: [],
