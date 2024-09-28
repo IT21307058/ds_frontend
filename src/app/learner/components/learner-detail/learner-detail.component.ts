@@ -41,6 +41,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LearnerService } from '../../services/learner.service';
 import { UserStorageService } from 'src/app/service/storage/user-storage.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-learner-detail',
@@ -53,8 +54,9 @@ export class LearnerDetailComponent implements OnInit {
   learnerId: number | null = null;
   activeTab: string = 'learner-details';
   openAccordions: Set<string> = new Set();
+  isLearner: boolean = false;
 
-  constructor(private learnerService: LearnerService) { }
+  constructor(private learnerService: LearnerService, private router: Router) { }
 
   ngOnInit(): void {
     const user = UserStorageService.getUser();
@@ -62,6 +64,14 @@ export class LearnerDetailComponent implements OnInit {
       this.learnerId = user.userId;
     }
     this.getLearnerDetails();
+
+    // check that login user INSTRUCTOR
+    if (user && user.role === 'LEARNER') {
+      this.isLearner = true;
+    } else {
+      // if not instructor navigate to Unauthroized page
+      this.router.navigate(['/unauthroized']);
+    }
   }
 
   getLearnerDetails(): void {

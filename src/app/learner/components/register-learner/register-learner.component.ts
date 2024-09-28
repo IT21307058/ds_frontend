@@ -5,13 +5,11 @@ import { Router } from '@angular/router';
 // import { InstructorService } from 'src/app/instructor/services/instructor.service';
 import { LearnerService } from '../../services/learner.service';
 import { UserStorageService } from 'src/app/service/storage/user-storage.service';
-<<<<<<< HEAD
+
 import { MyHttpClientService } from 'src/app/my-http-client.service';
 import { Message } from 'src/app/message';
-=======
 import { DomSanitizer } from '@angular/platform-browser';
 import * as DOMPurify from 'dompurify';
->>>>>>> ed0131c1873ecce0b04fcac859b92573f4659b76
 
 @Component({
   selector: 'app-register-learner',
@@ -32,11 +30,8 @@ export class RegisterLearnerComponent implements OnInit{
     private router: Router,
     private snackBar: MatSnackBar,
     private learnerService: LearnerService,
-<<<<<<< HEAD
-    private http: MyHttpClientService
-=======
+    private http: MyHttpClientService,
     private sanitizer: DomSanitizer
->>>>>>> ed0131c1873ecce0b04fcac859b92573f4659b76
   ){}
  
   ngOnInit() :void{
@@ -50,11 +45,7 @@ export class RegisterLearnerComponent implements OnInit{
    
     this.courseForm = this.fb.group({
       id: [this.userId, [Validators.required]],
-<<<<<<< HEAD
-      name: [this.username || this.content, [Validators.required]],
-=======
       name: [this.username, [Validators.required, Validators.minLength(3)]],
->>>>>>> ed0131c1873ecce0b04fcac859b92573f4659b76
       email: [this.email, [Validators.required]],
       cardNumber:['', [Validators.required, Validators.pattern('^[0-9]{16}$')]]
     })

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { InstructorService } from 'src/app/instructor/services/instructor.service';
+import { UserStorageService } from 'src/app/service/storage/user-storage.service';
 
 @Component({
   selector: 'app-all-content',
@@ -12,6 +13,7 @@ export class AllContentComponent implements OnInit {
 
   courseId: number;
   contents: any[] = []; // Assuming you have a Content interface/model
+  isLearner: boolean = false;
 
   constructor(private route: ActivatedRoute, private instructorService: InstructorService, private router: Router) { }
 
@@ -20,6 +22,17 @@ export class AllContentComponent implements OnInit {
       this.courseId = params['id'];
       this.loadContents();
     });
+
+    // get Login User Details
+    const user = UserStorageService.getUser()
+
+    // check that login user INSTRUCTOR
+    if (user && user.role === 'LEARNER') {
+      this.isLearner = true;
+    } else {
+      // if not instructor navigate to Unauthroized page
+      this.router.navigate(['/unauthroized']);
+    }
   }
   
 
