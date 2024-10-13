@@ -16,7 +16,7 @@ export class MarkCompleteComponent implements OnInit{
   courseId:number;
   contentId: number;
   userId: number | null = null;
-  isLearner: boolean = false;
+  // isLearner: boolean = false;
 
   constructor(
     private fb:FormBuilder,
@@ -45,12 +45,12 @@ export class MarkCompleteComponent implements OnInit{
     })
 
     // check that login user INSTRUCTOR
-    if (user && user.role === 'LEARNER') {
-      this.isLearner = true;
-    } else {
-      // if not instructor navigate to Unauthroized page
-      this.router.navigate(['/unauthroized']);
-    }
+    // if (user && user.role === 'LEARNER') {
+    //   this.isLearner = true;
+    // } else {
+    //   // if not instructor navigate to Unauthroized page
+    //   this.router.navigate(['/unauthroized']);
+    // }
   }
 
   markContent(): void{

@@ -54,7 +54,7 @@ export class LearnerDetailComponent implements OnInit {
   learnerId: number | null = null;
   activeTab: string = 'learner-details';
   openAccordions: Set<string> = new Set();
-  isLearner: boolean = false;
+  // isLearner: boolean = false;
 
   constructor(private learnerService: LearnerService, private router: Router) { }
 
@@ -66,12 +66,12 @@ export class LearnerDetailComponent implements OnInit {
     this.getLearnerDetails();
 
     // check that login user INSTRUCTOR
-    if (user && user.role === 'LEARNER') {
-      this.isLearner = true;
-    } else {
-      // if not instructor navigate to Unauthroized page
-      this.router.navigate(['/unauthroized']);
-    }
+    // if (user && user.role === 'LEARNER') {
+    //   this.isLearner = true;
+    // } else {
+    //   // if not instructor navigate to Unauthroized page
+    //   this.router.navigate(['/unauthroized']);
+    // }
   }
 
   getLearnerDetails(): void {

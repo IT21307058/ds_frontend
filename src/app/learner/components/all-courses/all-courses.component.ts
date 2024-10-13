@@ -14,7 +14,7 @@ export class AllCoursesComponent implements OnInit {
   displayedColumns: string[] = ['id','CourseName', 'Description','actions'];
   products: any;
   dataSource!: MatTableDataSource<any>;
-  isLearner: boolean = false;
+  // isLearner: boolean = false;
 
   constructor(private instructorService: InstructorService, private router: Router){}
 
@@ -25,12 +25,12 @@ export class AllCoursesComponent implements OnInit {
     const user = UserStorageService.getUser()
 
     // check that login user INSTRUCTOR
-    if (user && user.role === 'LEARNER') {
-      this.isLearner = true;
-    } else {
-      // if not instructor navigate to Unauthroized page
-      this.router.navigate(['/unauthroized']);
-    }
+    // if (user && user.role === 'LEARNER') {
+    //   this.isLearner = true;
+    // } else {
+    //   // if not instructor navigate to Unauthroized page
+    //   this.router.navigate(['/unauthroized']);
+    // }
   }
 
   

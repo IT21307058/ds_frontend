@@ -17,7 +17,7 @@ export class EnrollCourseComponent {
   userId: number | null = null;
   courseId:number | null = null;
   courseName:string | null = null;
-  isLearner: boolean = false;
+  // isLearner: boolean = false;
 
 
   constructor(
@@ -47,12 +47,12 @@ export class EnrollCourseComponent {
     })
 
     // check that login user INSTRUCTOR
-    if (user && user.role === 'LEARNER') {
-      this.isLearner = true;
-    } else {
-      // if not instructor navigate to Unauthroized page
-      this.router.navigate(['/unauthroized']);
-    }
+    // if (user && user.role === 'LEARNER') {
+    //   this.isLearner = true;
+    // } else {
+    //   // if not instructor navigate to Unauthroized page
+    //   this.router.navigate(['/unauthroized']);
+    // }
   }
 
 

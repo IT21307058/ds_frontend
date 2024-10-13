@@ -13,7 +13,7 @@ export class AllContentComponent implements OnInit {
 
   courseId: number;
   contents: any[] = []; // Assuming you have a Content interface/model
-  isLearner: boolean = false;
+  // isLearner: boolean = false;
 
   constructor(private route: ActivatedRoute, private instructorService: InstructorService, private router: Router) { }
 
@@ -27,12 +27,12 @@ export class AllContentComponent implements OnInit {
     const user = UserStorageService.getUser()
 
     // check that login user INSTRUCTOR
-    if (user && user.role === 'LEARNER') {
-      this.isLearner = true;
-    } else {
-      // if not instructor navigate to Unauthroized page
-      this.router.navigate(['/unauthroized']);
-    }
+    // if (user && user.role === 'LEARNER') {
+    //   this.isLearner = true;
+    // } else {
+    //   // if not instructor navigate to Unauthroized page
+    //   this.router.navigate(['/unauthroized']);
+    // }
   }
   
 
