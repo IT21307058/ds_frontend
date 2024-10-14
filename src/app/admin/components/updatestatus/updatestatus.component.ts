@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AdminService } from '../../services/admin.service';
+import { UserStorageService } from 'src/app/service/storage/user-storage.service';
 
 @Component({
   selector: 'app-updatestatus',
@@ -12,6 +13,7 @@ import { AdminService } from '../../services/admin.service';
 export class UpdatestatusComponent {
   contentId: number;
   productForm: FormGroup; // Declare FormGroup for the form
+  isAdmin: boolean = false;
 
   constructor(
     private adminService: AdminService,
@@ -35,6 +37,13 @@ export class UpdatestatusComponent {
       // description: [''],
       status: ['', Validators.required]
     });
+
+    const user = UserStorageService.getUser()
+    if (user && user.role === 'ADMIN') {
+      this.isAdmin = true;
+    } else {
+      this.router.navigate(['/unauthroized']);
+    }
   }
 
   loadContent(contentId: number) {

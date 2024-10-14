@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { InstructorService } from '../../services/instructor.service';
+import { UserStorageService } from 'src/app/service/storage/user-storage.service';
 
 @Component({
   selector: 'app-post-course',
@@ -12,6 +13,7 @@ import { InstructorService } from '../../services/instructor.service';
 export class PostCourseComponent {
 
   courseForm!: FormGroup;
+  isInstructor: boolean = false;
 
   constructor(
     private fb:FormBuilder,
@@ -26,6 +28,17 @@ export class PostCourseComponent {
       description: [null, [Validators.required]],
       coursePrice: [null, [Validators.required]],
     })
+
+    // get Login User Details
+    const user = UserStorageService.getUser()
+
+    // check that login user INSTRUCTOR
+    if (user && user.role === 'INSTRUCTOR') {
+      this.isInstructor = true;
+    } else {
+      // if not instructor navigate to Unauthroized page
+      this.router.navigate(['/unauthroized']);
+    }
   }
 
   addCourse(): void{

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="isInstructor">
     <h2>Add Course Content</h2>
 
     <form [formGroup]="productForm" (ngSubmit)="addContent()">
@@ -52,37 +52,16 @@
                 This input is required!
             </mat-error>
         </mat-form-field>
-        
-        <!-- <mat-form-field appearance="outline" class="form-field">
-            <mat-label>Status</mat-label>
-            <input matInput type="text" formControlName="status" placeholder="Status" required />
-            <mat-error *ngIf="productForm.get('status')?.hasError('required')">
-                This input is required!
-            </mat-error>
-        </mat-form-field> -->
 
         <mat-form-field appearance="outline" class="form-field">
             <mat-label>Status</mat-label>
             <mat-select formControlName="status" placeholder="Status" required>
-                <!-- <mat-option value="Accepted">Accepted</mat-option> -->
                 <mat-option value="Not Accepted">Not Accepted</mat-option>
             </mat-select>
             <mat-error *ngIf="productForm.get('status')?.hasError('required')">
                 This input is required!
             </mat-error>
         </mat-form-field>
-
-        <!-- <mat-form-field appearance="outline" class="form-field">
-            <mat-label>Select a Course</mat-label>
-            <mat-select formControlName="courseId" name="courseId">
-                <mat-option *ngFor="let content of listOfContent" [value]="content.id">
-                    {{content.description}}
-                </mat-option>
-            </mat-select>
-            <mat-error *ngIf="productForm.get('courseId').hasError('required')">
-                This Input is required!
-            </mat-error>
-        </mat-form-field> -->
 
         <button mat-raised-button color="primary" type="submit">Add Content</button>
     </form>

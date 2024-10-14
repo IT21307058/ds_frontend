@@ -15,6 +15,7 @@ export class InProgressCoursesComponent {
   displayedColumns: string[] = ['id', 'CourseName', 'Description', 'actions'];
   products: any;
   dataSource!: MatTableDataSource<any>;
+  // isLearner: boolean = false;
 
   // learnerId: number = 12;
   learnerId: number | null = null;
@@ -28,6 +29,14 @@ export class InProgressCoursesComponent {
       this.learnerId = user.userId
     }
     this.getInProgressCourses();
+
+    // check that login user INSTRUCTOR
+    // if (user && user.role === 'LEARNER') {
+    //   this.isLearner = true;
+    // } else {
+    //   // if not instructor navigate to Unauthroized page
+    //   this.router.navigate(['/unauthroized']);
+    // }
   }
 
   getInProgressCourses() {

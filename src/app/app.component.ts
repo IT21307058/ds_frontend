@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserStorageService } from './service/storage/user-storage.service';
+import { MyHttpClientService } from './my-http-client.service';
 
 @Component({
   selector: 'app-root',
@@ -14,8 +15,9 @@ export class AppComponent {
   isAdminLoggedIn: boolean = UserStorageService.isAdminLoggedIn();
   isInstructorLoggedIn: boolean = UserStorageService.isInstructorLoggedIn();
   isLearnerLoggedIn: boolean = UserStorageService.isLearnerLoggedIn();
+  componentToShow: any;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private http: MyHttpClientService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     // whenever route change also change value
@@ -25,6 +27,20 @@ export class AppComponent {
       this.isInstructorLoggedIn = UserStorageService.isInstructorLoggedIn();
       this.isLearnerLoggedIn = UserStorageService.isLearnerLoggedIn();
     })
+
+    this.route.queryParams
+      .subscribe(params => {
+          if (params["code"] !== undefined) {
+            this.http.getToken(params["code"]).subscribe(result => {
+              if (result === true) {
+                this.componentToShow = "private";
+              } else {
+                this.componentToShow = "public";
+              }
+            });
+          }
+        }
+      );
   }
 
   // logout

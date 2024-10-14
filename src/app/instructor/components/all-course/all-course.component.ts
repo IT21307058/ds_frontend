@@ -5,6 +5,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { UserStorageService } from 'src/app/service/storage/user-storage.service';
 
 
 @Component({
@@ -17,11 +18,23 @@ export class AllCourseComponent implements OnInit{
   displayedColumns: string[] = ['id','CourseName', 'Description','actions'];
   products: any;
   dataSource!: MatTableDataSource<any>;
+  isInstructor: boolean = false;
 
   constructor(private instructorService: InstructorService, private router: Router){}
 
   ngOnInit(){
     this.getAllProducts();
+
+    // get Login User Details
+    const user = UserStorageService.getUser()
+
+    // check that login user INSTRUCTOR
+    if (user && user.role === 'INSTRUCTOR') {
+      this.isInstructor = true;
+    } else {
+      // if not instructor navigate to Unauthroized page
+      this.router.navigate(['/unauthroized']);
+    }
   }
 
   // getAllProducts(){
