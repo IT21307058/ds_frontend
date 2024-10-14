@@ -49,29 +49,35 @@ export class EnrollCourseComponent {
 
   enroll(): void {
     if (this.courseForm.valid) {
-      this.learnerService.enrollCourse(this.userId, this.courseId).subscribe(() => {
-        this.snackBar.openFromComponent(EmailToastComponent, {
-          duration: 5000,
-          horizontalPosition: 'end',
-          verticalPosition: 'top',
-          panelClass: ['email-toast']
-        });
-        // this.router.navigateByUrl('/learner/allcourses');
-        window.location.href = 'http://localhost:9090/';
-      }, error => {
-        console.log(error);
-        if (error.error === 'Learner is already enrolled in the course') { // Check for the error message
-          this.snackBar.open('You are already enrolled in this course', 'Close', {
-            duration: 5000,
-            panelClass: 'error-snackbar'
-          });
-        } else {
-          this.snackBar.open(error.error, 'Close', { // Display the actual error message
-            duration: 5000,
-            panelClass: 'error-snackbar'
-          });
+      this.learnerService.enrollCourse(this.userId, this.courseId).subscribe(
+        () => {
+          console.log('Enrollment successful, redirecting to payment gateway...');
+          // Uncomment the notification if needed
+          // this.snackBar.openFromComponent(EmailToastComponent, {
+          //   duration: 5000,
+          //   horizontalPosition: 'end',
+          //   verticalPosition: 'top',
+          //   panelClass: ['email-toast']
+          // });
+          // Uncomment the router navigation if needed
+          // this.router.navigateByUrl('/learner/allcourses');
+          window.location.href = 'http://localhost:9090/';
+        },
+        (error) => {
+          console.log('Enrollment failed:', error);
+          if (error.error === 'Learner is already enrolled in the course') {
+            this.snackBar.open('You are already enrolled in this course', 'Close', {
+              duration: 5000,
+              panelClass: 'error-snackbar'
+            });
+          } else {
+            this.snackBar.open(error.error, 'Close', {
+              duration: 5000,
+              panelClass: 'error-snackbar'
+            });
+          }
         }
-      });
+      );
     } else {
       this.courseForm.markAllAsTouched();
     }

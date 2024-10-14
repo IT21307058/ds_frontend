@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { UserStorageService } from 'src/app/service/storage/user-storage.service';
 
 
-const BASIC_URL = "http://localhost:8080/api/v1/learners"
+const BASIC_URL = "http://localhost:8082/api/v1/learners"
 const BASIC_URL1 = "http://localhost:8084/"
 
 @Injectable({
